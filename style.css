@@ -1,0 +1,344 @@
+/*
+Theme Name:  tinyDancer
+Theme URI:   https://classicpress-themes/tinydancer
+Author:      Tradesouthwest
+Author URI:  https://tradesouthwest.com/
+Description: tinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy percent and thirty percent widths. Footer is full width with three widget sections.
+Version:     1.0.0
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:        one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, blog
+Text Domain: tinydancer
+
+This theme, like ClassicPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/**
+ * Table of Contents
+ *
+ * 1.0 - Body/Page 
+ * 2.0 - Universal padding and margins and alignments
+ * 3.0 - Site Header
+ * 4.0 - Page
+ * 5.0 - Wide Banner Top
+ * 6.0 - Main 
+ * 7.0 - Content
+ * 8.0 - Sidebar
+ * 9.0 - Footer
+ * 10.0 - Media Breakpoints
+ */
+
+/**
+ * 1.0 - Body | Page
+ *
+ */
+ 
+body {
+    padding: 0;
+    font-size: 100%;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.page{
+    width: 98.8992%;
+    margin: 0 auto
+}
+
+/**
+ * ************************************************** 2.0 - Universal
+ *
+ */
+/* Allow percentage-based heights in the application */
+html, body {
+  height: 100%;
+}
+/*
+ Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  line-height: 1.485
+}
+ 
+.main-padded, 
+.page-header, 
+.section-content, 
+.section-sidebar, 
+.page-footer{
+    padding: .825em .825em 0;
+    box-sizing: border-box;
+}
+img {
+	height: auto;
+	/* Make sure images are scaled correctly. */
+	max-width: 100%;
+	/* Adhere to container width. */
+	vertical-align: middle;
+}
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	/* many screen reader and browser combinations announce broken words as they would appear visually */
+	word-wrap: normal !important;
+}
+/* must have higher specificity than alternative color schemes inline styles */
+.skip-link {
+	background-color: #f1f1f1;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+	color: #21759b;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	left: -9999em;
+	outline: none;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	text-transform: none;
+	top: -9999em;
+}
+
+.logged-in .skip-link {
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+	font-family: "Open Sans", sans-serif;
+}
+
+.skip-link:focus {
+	clip: auto;
+	height: auto;
+	left: 6px;
+	top: 7px;
+	width: auto;
+	z-index: 100000;
+}
+a{
+  outline: none;  
+  text-decoration: none;
+}
+
+/**
+* ************************************************** 3.0 - Site Header
+*/
+.page-header { 
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-top: .825em;
+}
+.site-title a{
+  color: #494c4f;
+  text-shadow: 0 .5px .5px rgba(0,0,0,0.12), 0 1px 1px rgba(240,240,240,0.4);
+}
+.site-description{
+  font-size: 125%;
+  font-weight: bolder;
+  text-shadow: 0 .5px .5px rgba(0,0,0,0.12), 0 1px 1px rgba(240,240,240,0.24);
+}
+.page-header-inner{
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  z-index: 100;
+}
+.site-logo{
+  z-index: 1;
+  position: relative;
+  width: 25%;
+}
+.site-logo img{
+  position: relative;
+  height: 128px;
+}
+.primary-menu {
+  width: 100%;
+	flex: 0 1 100%;
+	margin: 0.875em 0;
+}
+
+.page-nav {
+  width: 100%;
+  margin: 0;
+  padding: .5em;
+  box-sizing: border-box
+}
+
+.page-nav ul {
+  list-style: none;  margin: 0;  padding: 0;  display: flex;
+}
+
+.page-nav li {
+  flex: 3;
+}
+
+.page-nav a {
+	color: #1a1a1a;
+	display: block;
+	line-height: 1.3125;
+	outline-offset: -1px;
+	padding: 0.84375em 0;
+}
+
+.page-nav a:hover,
+.page-nav a:focus {
+	color: #007acc;
+}
+
+.page-nav .current-menu-item > a,
+.page-nav .current-menu-ancestor > a {
+	font-weight: 700;
+}
+
+.page-nav .primary-menu {
+	border-bottom: 1px solid #d1d1d1;
+}
+
+.page-nav .menu-item-has-children > a {
+	margin-right: 56px;
+}
+
+/**
+ * ************************************************** 4.0 - Page
+ * This is a wrapper for all content below the header.
+ * Ends in the footer template just above footer.
+ */
+.page {
+  overflow-x: hidden;
+} 
+section {
+  overflow: auto;
+}
+
+/**
+* 5.0 - Wide Banner Top
+* TODO set height in customzr
+*/
+.home-wide-top{
+  margin: 0;
+  width: 100%;
+}
+.hero-inner-content {
+  height:520px;
+  padding: 2.75em;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/**
+ * ************************************************** 6.0 Main 
+ * horizontal-layout TODO set background rgba in customzr
+ */
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+/**
+ * ************************************************** 7.0 - Content
+ */
+ .section-content {
+  width: 70%;
+}
+
+/**
+ * ************************************************** 8.0 - Sidebar
+ */
+
+.section-sidebar {
+  width: 30%;
+}
+.section-sidebar .widget ul{
+  list-style: none;
+}
+.inner-sidebar {
+  padding: .825em 0 0 1.875em;
+  box-sizing: border-box;
+}
+#wp-calendar {
+  table-layout:fixed;
+  
+}
+#wp-calendar td{
+  padding: 3px 9px;
+}
+/**
+ * ************************************************** 9.0 Footer 
+ */ 
+.page-footer {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.page-footer > .section-third{
+  flex: 1 1 0;
+}
+.footer-base{
+  margin: 0;
+  height: 2.67em;
+  background: #2d2d2d;
+}
+.footer-base a,
+.footer-base{
+  color: #ffffff;
+}
+.upto a {
+  font-size: larger;
+  border: thin solid white;
+  border-radius: 50%
+}
+
+/* begin begin Back to Top button  */
+
+.back_to_top {
+  position: fixed;
+  bottom: 3px;
+  right: 115px; 
+  z-index: 9999;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.back_to_top:hover {
+  background: #e9ebec;
+  color: black;
+}
+
+.back_to_top-show {
+  display: block;
+}
+
+/**
+ * ************************************************** 10.0 - Media Breakpoints
+ */
+  
+  @media screen and (min-width: 1025px){
+    body{ 
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+  }
+  @media screen and (max-width: 768px){
+    .home .home-wide-top{
+      color: inherit;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+    .page-footer > .section-third,
+    .section-content,
+    .section-sidebar{
+      width:100%; 
+    }
+    #wp-calendar td{
+      padding: 3px;
+    }
+  } 
