@@ -26,35 +26,41 @@
  * @since 1.0.0
  */
 
-// FAST LOADER References ( find @id in DocBlocks )
+// FAST LOADER References ( find @#id in DocBlocks )
 // ------------------------- Actions ---------------------------
 // A1
-add_action( 'after_setup_theme',                  'tinydancer_theme_setup' );
+add_action( 'after_setup_theme',  'tinydancer_theme_setup' );
 // A2
-add_action( 'after_setup_theme',                  'tinydancer_theme_content_width', 0 );
+add_action( 'after_setup_theme',  'tinydancer_theme_content_width', 0 );
 // A3
-add_action( 'wp_enqueue_scripts',                 'tinydancer_theme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'tinydancer_theme_enqueue_styles' );
 // A4
-add_action( 'widgets_init',                       'tinydancer_theme_widgets_init' );
+add_action( 'widgets_init',         'tinydancer_theme_widgets_init' );
 // A5
-add_action( 'admin_init',                         'tinydancer_theme_add_editor_styles' );
+add_action( 'admin_init',               'tinydancer_theme_add_editor_styles' );
 // A6
 add_action( 'tinydancer_render_attachment', 'tinydancer_render_attachment_link' ); 
 // ------------------------- Filters -----------------------------
 // F1 
-add_filter( 'body_class',                         'tinydancer_theme_body_classes' );
+add_filter( 'body_class',                   'tinydancer_theme_body_classes' );
 // F2
-add_filter( 'widget_tag_cloud_args',              'tinydancer_theme_widget_tag_cloud_args' );
+add_filter( 'widget_tag_cloud_args',    'tinydancer_theme_widget_tag_cloud_args' );
+// F3
+add_filter('excerpt_more',          'tinydancer_custom_excerpt_more'); 
+// F4
+add_filter( 'body_class',       'tinydancer_theme_custom_class' );
 
+/**
+ * Add backwards compatibility support for wp_body_open function.
+ */
 if ( ! function_exists( 'wp_body_open' ) ) {
-    /**
-    * Add backwards compatibility support for wp_body_open function.
-    */
+    
     function wp_body_open() {
         do_action( 'wp_body_open' );
     }
 }
 
+add_filter('body_class','wpb_browser_body_class');
 /** #A1
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -147,9 +153,6 @@ if ( ! function_exists( 'tinydancer_theme_setup' ) ) :
 				'secondary-menu'  => __( 'Secondary Top Menu', 'tinydancer' ),
 			)
 		);
-
-		// Indicate widget sidebars can use selective refresh in the Customizer.
-		//add_theme_support( 'customize-selective-refresh-widgets' );
 	}
 endif;
 
@@ -325,7 +328,7 @@ function tinydancer_render_attachment_link(){
  */
 require get_template_directory() . '/inc/customizer.php';
 
-require get_template_directory() . '/inc/theme-page-options.php';
+//require get_template_directory() . '/inc/theme-page-options.php';
 
 /** #A7
  * Render hero section
@@ -335,27 +338,28 @@ require get_template_directory() . '/inc/theme-page-options.php';
  * @param string $htitle theme mod text
  * 
  */
-// A7
+// #A7
 add_action('tinydancer_render_hero', 'tinydancer_render_hero_section');
 function tinydancer_render_hero_section() {
-	 
-	//$hheight = '520';
+
 	// Check if the image really exists
 	$himg = wp_get_attachment_url( get_theme_mod( 
 		'tinydancer_hero_image' ) );
-	//if ( ! empty(hero_image()) && null !== hero_image() )
+	if ( empty($himg) ) { 
+		$himg = get_template_directory_uri() . '/imgs/default-hero.jpg'; 
+	}
 	$hout = 'style="background-image: url( '.$himg.' );"';
 ?>
 	<div class="home-wide-top">
 		<div class="hero-inner-content" <?php print($hout); ?>>
+
 		<?php
-	if( $htitle = get_theme_mod('tinydancer_hero_title') )
-	{
-		echo '<h2 class="hero-title">' . $htitle . '</h2>';
-	}
-	if( $hheading = get_theme_mod( 'tinydancer_hero_heading', '' ) ) {
-		echo '<h3 class="hero-heading">' . $hheading . '</h3>';
-	} ?>
+		if( $htitle = get_theme_mod('tinydancer_hero_title') ) {
+			echo '<h2 class="hero-title">' . $htitle . '</h2>';
+		}
+		if( $hheading = get_theme_mod( 'tinydancer_hero_heading', '' ) ) {
+			echo '<h3 class="hero-heading">' . $hheading . '</h3>';
+		} ?>
 	
 		</div>
 	</div>
@@ -380,3 +384,68 @@ function tinydancer_theme_widget_tag_cloud_args( $args ) {
 
 	return $args;
 }
+
+//https://themefoundation.com/wordpress-theme-customizer/
+function tinydancer_sanitize_text( $input ) {
+    return wp_kses_post( force_balance_tags( $input ) );
+}
+
+/** #F3
+ * Remove ellipsis and set read more text.
+ * Dev note: Title attribute is not attribute realted, 
+ * it is text from the theme_mod only. Only `get_the_title` would work
+ * if you want the actual title of the post.
+ */
+function tinydancer_custom_excerpt_more($link) {
+    //make sure admin tables not effected
+    if ( is_admin() ) {
+		return $link;
+	}
+    $post = get_post();
+    if( get_theme_mods() ) {
+    $title = get_theme_mod( 'tinydancer_readon_text_setting' );
+    }
+        $link = ' <a class="more-link" href="'. esc_url( get_permalink($post->ID) ) 
+                . '" title="' . esc_attr( $title ) . '">' 
+                . esc_html( $title ) .'</a>';
+        return tinydancer_sanitize_text( $link );
+}
+
+/** #F4
+ * Adding body class to the hero wide template page
+ * 
+ * @since 1.0
+ */
+function tinydancer_theme_custom_class( $classes ) {
+	if ( is_page_template( 'hero-page.php' ) ) {
+        $classes[] = 'hero-page';
+    }
+	return $classes;
+} 
+
+/** #F5
+ * Check if WordPress detected a specific browser and add body_class
+ * 
+ * @since 1.0
+ * @param Global WP Browser detect
+ * @return body class added to opening body tag
+ */
+function wpb_browser_body_class($classes) { 
+    global $is_iphone, $is_chrome, $is_safari, $is_NS4, $is_opera, $is_macIE, 
+		   $is_winIE, $is_gecko, $is_lynx, $is_IE, $is_edge;
+  
+	if ($is_iphone)     $classes[] ='iphone-safari';
+	elseif ($is_chrome) $classes[] ='google-chrome';
+	elseif ($is_safari) $classes[] ='safari';
+	elseif ($is_NS4)    $classes[] ='netscape';
+	elseif ($is_opera)  $classes[] ='opera';
+	elseif ($is_macIE)  $classes[] ='mac-ie';
+	elseif ($is_winIE)  $classes[] ='windows-ie';
+	elseif ($is_gecko)  $classes[] ='firefox';
+	elseif ($is_lynx)   $classes[] ='lynx';
+	elseif ($is_IE)     $classes[] ='internet-explorer';
+	elseif ($is_edge)   $classes[] ='ms-edge';
+	else $classes[] = 'unknown-browser';
+		
+	return $classes;
+} 

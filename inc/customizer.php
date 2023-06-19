@@ -74,7 +74,7 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
     );  
 	  // Add setting & control for hero image
 	  $wp_customize->add_setting( 'tinydancer_hero_image', array(
-		'default' => '',
+		'default' => get_template_directory_uri() . '/imgs/default-hero.jpg',
 		'transport' => $transport
 	  ));
   

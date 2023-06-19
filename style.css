@@ -243,6 +243,115 @@ main {
   width: 70%;
 }
 
+/* Gallery
+ ---------------------------------------- */
+
+ .gallery {
+  margin: auto;
+  /* gallery clearing*/
+  overflow: hidden;
+  width: 100%;
+}
+
+.gallery .gallery-item {
+  float: left;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.gallery.gallery-columns-1 .gallery-item {
+  width: 100%;
+}
+
+.gallery.gallery-columns-2 .gallery-item {
+  width: 50%;
+}
+
+.gallery.gallery-columns-3 figure {
+  width: 33.33%;
+}
+
+.gallery.gallery-columns-4 .gallery-item {
+  width: 25%;
+}
+
+.gallery.gallery-columns-5 figure {
+  width: 20%;
+}
+
+.gallery.gallery-columns-6 figure {
+  width: 16.66%;
+}
+
+.gallery.gallery-columns-7 figure {
+  width: 14.285%;
+}
+
+.gallery.gallery-columns-8 figure {
+  width: 12.5%;
+}
+
+.gallery.gallery-columns-9 figure {
+  width: 11.111%;
+}
+
+.gallery img {
+  box-shadow: 0px 0px 4px #999;
+  border: 1px solid white;
+  padding: 5px;
+  background: #f9f9f9;
+}
+
+.gallery img:hover {
+  background: white;
+}
+
+.gallery .gallery-caption {
+  margin-left: 0;
+}
+
+.gallery dl,
+.gallery dt {
+  margin: 0;
+}
+
+.gallery br+br {
+  display: none;
+}
+
+.gallery br {
+  clear: both
+}
+
+.bypostauthor {
+  color: inherit;
+}
+
+.alignleft {
+  display: inline;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+
+.textcenter {
+  clear: left;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.sticky{
+  border-bottom: 3px dashed #ddd;
+}
 /**
  * ************************************************** 8.0 - Sidebar
  */
