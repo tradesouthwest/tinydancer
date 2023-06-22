@@ -3,7 +3,7 @@ Theme Name:  tinyDancer
 Theme URI:   https://classicpress-themes/tinydancer
 Author:      Tradesouthwest
 Author URI:  https://tradesouthwest.com/
-Description: tinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy percent and thirty percent widths. Footer is full width with three widget sections.
+Description: tinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy percent and thirty percent widths. Footer is full width with three widget sections. OPtions include content padding; background-color; theme headings; hero section text h2, h3; hero image.
 Version:     1.0.0
 License:     GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -60,12 +60,10 @@ p, h1, h2, h3, h4, h5, h6 {
   line-height: 1.485
 }
  
-.main-padded, 
 .page-header, 
 .section-content, 
 .section-sidebar, 
 .page-footer{
-    padding: .825em .825em 0;
     box-sizing: border-box;
 }
 img {
@@ -115,8 +113,67 @@ img {
 	z-index: 100000;
 }
 a{
-  outline: none;  
+  background-color: transparent;
   text-decoration: none;
+  color: #236aa7;
+
+}
+a:active,
+a:hover {
+    outline: 0;
+}
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}
+table {
+  background-color: transparent;
+}
+
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777;
+}
+
+th {
+  text-align: left;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+table>thead>tr>th,
+table>tbody>tr>th,
+table>tfoot>tr>th,
+table>thead>tr>td,
+table>tbody>tr>td,
+table>tfoot>tr>td {
+  padding: 4px;
+  line-height: 1.28;
+  vertical-align: middle;
+  border-top: 1px solid #ddd;
 }
 
 /**
@@ -152,33 +209,41 @@ a{
   position: relative;
   height: 128px;
 }
-.primary-menu {
-  width: 100%;
-	flex: 0 1 100%;
-	margin: 0.875em 0;
+/* ************************************************** 3.1 - Nav */
+.page-nav .primary-menu {
+  display: flex;
+  flex-direction: row;
 }
 
 .page-nav {
   width: 100%;
   margin: 0;
-  padding: .5em;
+  padding: 10px 0;
   box-sizing: border-box
 }
-
-.page-nav ul {
-  list-style: none;  margin: 0;  padding: 0;  display: flex;
+.primary-menu ul {  
+  
+  list-style: none;  
+  margin: 0;  
+  padding: 0;  
+  display: flex;  
+  justify-content: space-between;
 }
-
-.page-nav li {
-  flex: 3;
+.primary-menu li {
+  color: inherit;
+  flex: 1;
+  display: flex;
+  height: 2.444em;
 }
 
 .page-nav a {
-	color: #1a1a1a;
-	display: block;
-	line-height: 1.3125;
-	outline-offset: -1px;
-	padding: 0.84375em 0;
+	background: #eee;
+	box-sizing: inherit;
+  color: #464646;
+  padding: 10px;
+  display: flex;
+  width: fit-content;
+
 }
 
 .page-nav a:hover,
@@ -192,11 +257,45 @@ a{
 }
 
 .page-nav .primary-menu {
-	border-bottom: 1px solid #d1d1d1;
+	background: transparent;
 }
+.page-nav ul li {
+  list-style-type: none;
+}
+.primary-menu .sub-menu {
 
-.page-nav .menu-item-has-children > a {
-	margin-right: 56px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: visible;
+}
+.primary-menu .menu-item-has-children{
+  flex-direction: column;
+}
+.primary-menu .sub-menu > li{
+  display: none;
+opacity: 0;
+  white-space: pre-wrap;
+  min-height: 2.64em;
+  margin-top: -.4em;
+  box-sizing: inherit;
+  border-bottom: thin solid #888
+}
+.primary-menu .menu-item-has-children:hover .sub-menu > li,
+.primary-menu .menu-item-has-children:focus .sub-menu > li{
+display: flex;
+opacity: 1;
+
+}
+@media (max-width: 800px) {
+  .page-nav .primary-menu {
+    flex-direction: column;
+    height: 100%;
+
+  }
+  .primary-menu .menu-item-has-children .sub-menu > li{
+    display: flex;
+    opacity: 1;
+  }
 }
 
 /**
@@ -220,11 +319,21 @@ section {
   width: 100%;
 }
 .hero-inner-content {
-  height:520px;
+  height: calc(520px - 10vh );
   padding: 2.75em;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.hero-title,
+.hero-heading {
+  background: rgba(252,252,252,.24);
+  width: fit-content;
+  border-radius: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-shadow: 0 .5px .5px rgba(0,0,0,0.12), 0 1px 1px rgba(240,240,240,0.4);
 }
 /**
  * ************************************************** 6.0 Main 
@@ -388,12 +497,16 @@ main {
 }
 .footer-base{
   margin: 0;
+  max-width: 1440px;
   height: 2.67em;
   background: #2d2d2d;
 }
 .footer-base a,
 .footer-base{
   color: #ffffff;
+}
+.upto{
+  display: flex;
 }
 .upto a {
   font-size: larger;
@@ -406,7 +519,7 @@ main {
 .back_to_top {
   position: fixed;
   bottom: 3px;
-  right: 115px; 
+  right: calc(-17px + 5vw);
   z-index: 9999;
   width: 30px;
   height: 30px;
@@ -432,6 +545,10 @@ main {
     body{ 
       max-width: 1440px;
       margin: 0 auto;
+    }
+    .back_to_top {
+    
+        left: 85%;
     }
   }
   @media screen and (max-width: 768px){

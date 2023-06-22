@@ -25,7 +25,7 @@
  * @package tinyDancer
  * @since 1.0.0
  */
-
+if ( !defined ( 'TINYDANCER_VER' ) ) { define ( 'TINYDANCER_VER', time() ); }
 // FAST LOADER References ( find @#id in DocBlocks )
 // ------------------------- Actions ---------------------------
 // A1
@@ -178,7 +178,9 @@ function tinydancer_theme_content_width() {
 function tinydancer_theme_enqueue_styles() {
 	wp_enqueue_style( 
 		'tinyDancer-style', 
-		get_stylesheet_uri() 
+		get_stylesheet_directory_uri() .'/style.css',
+		array(),
+		TINYDANCER_VER
 	);
     
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -191,7 +193,7 @@ function tinydancer_theme_enqueue_styles() {
 		'tinydancer-script', 
 		get_template_directory_uri() . '/rels/tinydancer-script.js', 
 		array(), 
-		'1.0.1', 
+		TINYDANCER_VER, 
 		true 
 	);
 /*
@@ -328,7 +330,7 @@ function tinydancer_render_attachment_link(){
  */
 require get_template_directory() . '/inc/customizer.php';
 
-//require get_template_directory() . '/inc/theme-page-options.php';
+require get_template_directory() . '/inc/theme-page-options.php';
 
 /** #A7
  * Render hero section
@@ -383,11 +385,6 @@ function tinydancer_theme_widget_tag_cloud_args( $args ) {
 	$args['format']   = 'list';
 
 	return $args;
-}
-
-//https://themefoundation.com/wordpress-theme-customizer/
-function tinydancer_sanitize_text( $input ) {
-    return wp_kses_post( force_balance_tags( $input ) );
 }
 
 /** #F3

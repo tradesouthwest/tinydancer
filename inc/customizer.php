@@ -26,12 +26,7 @@ add_action( 'customize_register', 'tinydancer_register_theme_customizer_setup' )
 
 function tinydancer_register_theme_customizer_setup($wp_customize)
 {
-	//$transport = ( $wp_customize->selective_refresh ? 'postMessage' : 'refresh' );
-    // Branding
-    $wp_customize->add_section('colors', array(
-            'title'             => __( 'Colors and Theme Branding', 'tinydancer' ),
-            'priority'          => 25
-    )); 
+	$transport = 'postMessage'; 
     // Theme font choice section
     $wp_customize->add_section( 'title_tagline', array(
         'title'       => __( 'Theme Headings', 'tinydancer' ),
@@ -40,7 +35,7 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
     ) );
 	// Add hero section
     $wp_customize->add_section( 'tinydancer_hero', array(
-		'title' => 'Hero Section',
+		'title' => 'Hero and Headings Section',
 		'priority' => 20
 	  ));
 
@@ -89,7 +84,38 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
 		  'width' => 1080,
 		  'height' => 520
 		) )
-	  );
+	);
+	$wp_customize->add_setting( 'tinydancer_padding_content', array(
+		'default' => '',
+		'transport' => $transport
+	));
+	$wp_customize->add_control( 'tinydancer_padding_content', array(
+		'label'   => 'Content Padding',
+		'section'  => 'tinydancer_hero',
+		'settings'  => 'tinydancer_padding_content',
+		'type'       => 'number',
+		'description' => __( 'Change padding space of Content sections.', 'tinydancer')
+	));
+
+	$wp_customize->add_setting(
+		'tinydancer-font-color',
+		array(
+			'default' => '#444444',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+	 
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'tinydancer-font-color',
+			array(
+				'label' => 'Font Color',
+				'section' => 'colors',
+				'settings' => 'tinydancer-font-color'
+			)
+		)
+	);
 
 }
 // Easy Boolean checker for checkbox

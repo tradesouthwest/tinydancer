@@ -1,18 +1,46 @@
 <?php 
 /**
- * Page options settings
- */
-// A1
-//add_action( 'tinydancer_hero_heading', 'tinydancer_hero_heading_render', 9 );
-
-/** #A1
- * Render text h4 hero heading
+ * Page options settings and helpers
  * @since 1.0
- * @return string Text only wrapped in h4 tag
+ * @package tinydancer
  */
-function tinydancer_hero_heading_render(){
+add_action( 'wp_head', 'tinydancer_theme_customizer_css');
+/**
+ * Text sanitizer for numeric values
+ * @since 1.0
+ * @see https://themefoundation.com/wordpress-theme-customizer/
+ * @return string $input
+ */
+function tinydancer_sanitize_integer( $input ) {
+    if( is_numeric( $input ) ) {
+        return intval( $input );
+    }
+} 
 
-    $heading = get_theme_mod( 'tinydancer_hero_heading', 'site' );
-    //tinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy percent and thirty percent widths. Footer is full width with three widget sections.";
-return $heading;
+/**
+ * Text sanitizer for outputs
+ * @since 1.0
+ * 
+ * @return string $input
+ */
+function tinydancer_sanitize_text( $input ) {
+    return wp_kses_post( force_balance_tags( $input ) );
+}
+
+/**
+ * Send custum CSS to wp_head
+ * @since 1.0
+ * 
+ */
+function tinydancer_theme_customizer_css() {
+    if ( get_theme_mods() ) : 
+        $background_color = get_background_color();
+        echo '<style type="text/css">';
+        if ( get_theme_mod( 'tinydancer-font-color' ) ) :
+            $cpaddg = get_theme_mod( 'tinydancer_padding_content' );
+            $pcolor = get_theme_mod( 'tinydancer-font-color' );
+            echo 'body{ background-color: #' . esc_attr( $background_color ) . ';}.section-content{ padding: ' . esc_attr( $cpaddg ) . 'px; }.inner-sidebar{padding-top: ' . esc_attr( $cpaddg ) . 'px;}p, .entry-content, .excerpt-content, li, h2, h3, h4 {color: ' . esc_attr( $pcolor ) . ';}';
+        endif;
+        echo '</style>';
+    endif;
 }
