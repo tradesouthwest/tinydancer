@@ -39,7 +39,7 @@ function tinydancer_theme_customizer_css() {
         if ( get_theme_mod( 'tinydancer-font-color' ) ) :
             $cpaddg = get_theme_mod( 'tinydancer_padding_content' );
             $pcolor = get_theme_mod( 'tinydancer-font-color' );
-            echo 'body{ background-color: #' . esc_attr( $background_color ) . ';}.section-content{ padding: ' . esc_attr( $cpaddg ) . 'px; }.inner-sidebar{padding-top: ' . esc_attr( $cpaddg ) . 'px;}p, .entry-content, .excerpt-content, li, h2, h3, h4 {color: ' . esc_attr( $pcolor ) . ';}';
+            echo 'body{ background-color: #' . esc_attr( $background_color ) . ';}.section-content{ padding: ' . esc_attr( $cpaddg ) . 'px; }.section-sidebar{padding-top: ' . esc_attr( $cpaddg ) . 'px;}p, .entry-content, .excerpt-content, li, h2, h3, h4 {color: ' . esc_attr( $pcolor ) . ';}';
         endif;
         echo '</style>';
     endif;

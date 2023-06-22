@@ -207,7 +207,8 @@ table>tfoot>tr>td {
 }
 .site-logo img{
   position: relative;
-  height: 128px;
+  max-height: 200px;
+  width: max-content;
 }
 /* ************************************************** 3.1 - Nav */
 .page-nav .primary-menu {
@@ -309,9 +310,72 @@ opacity: 1;
 section {
   overflow: auto;
 }
+.article-heading{
+  margin-top: 1.444em;
+  margin-right: 0px;
+  margin-bottom: -10px;
+  margin-left: 0px;
+}
+/* Alignments */
+.bypostauthor {
+  color: inherit;
+}
 
+.alignleft {
+  display: inline;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+
+.textcenter {
+  clear: left;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.sticky{
+  border-bottom: 3px dashed #ddd;
+}
+.maxheight-sm{
+  max-height: 168px;
+  overflow:hidden;
+  display: flex;
+}
+.maxheight-sm img{
+  max-height: 150px;
+  width: auto;
+}
+.inner_content .aftr-excrpt hr{
+  color:transparent;
+  height:1px;
+  border-bottom: thin solid #ccc;
+}
+.pagination-nav a {
+  padding: 6px 10px;
+  background: #2d2d2d;
+  color: white;
+  border-radius: 50%
+}
+.pagination-nav {
+  margin-top: 1em;
+  width: 100%;
+  display: flex;
+}
+.prenav{
+  margin-right:1em;
+}
 /**
-* 5.0 - Wide Banner Top
+* ************************************************** 5.0 - Wide Banner Top
 * TODO set height in customzr
 */
 .home-wide-top{
@@ -350,6 +414,8 @@ main {
  */
  .section-content {
   width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Gallery
@@ -432,41 +498,15 @@ main {
   clear: both
 }
 
-.bypostauthor {
-  color: inherit;
-}
-
-.alignleft {
-  display: inline;
-  margin-right: 1.5em;
-}
-
-.alignright {
-  display: inline;
-  margin-left: 1.5em;
-}
-
-.aligncenter {
-  clear: both;
-  display: block;
-  margin: 0 auto;
-}
-
-.textcenter {
-  clear: left;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
-.sticky{
-  border-bottom: 3px dashed #ddd;
-}
 /**
  * ************************************************** 8.0 - Sidebar
  */
 
 .section-sidebar {
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .section-sidebar .widget ul{
   list-style: none;
@@ -490,7 +530,7 @@ main {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .page-footer > .section-third{
   flex: 1 1 0;

@@ -13,6 +13,7 @@
  * suport footer background & text color
  * header background & color
  * page background & color
+ * TODO module selection checkboxes. pagination prev next post
  */ 
 
 add_action( 'customize_register', 'tinydancer_register_theme_customizer_setup' );
@@ -58,8 +59,8 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
 		'transport' => $transport
 	));
 	// hero h3 control
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize,
-        'tinydancer_hero_heading',
+	$wp_customize->add_control( new WP_Customize_Control( 
+		$wp_customize, 'tinydancer_hero_heading',
 		array('label' => __( 'Hero Heading', 'tinydancer' ),
 			'section'  => 'tinydancer_hero',
 			'settings'  => 'tinydancer_hero_heading',
@@ -70,12 +71,11 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
 	  // Add setting & control for hero image
 	  $wp_customize->add_setting( 'tinydancer_hero_image', array(
 		'default' => get_template_directory_uri() . '/imgs/default-hero.jpg',
-		'transport' => $transport
+		'transport' => 'refresh'
 	  ));
   
-	$wp_customize->add_control(
-		new WP_Customize_Cropped_Image_Control( 
-	$wp_customize, 'tinydancer_hero_image', array(
+	$wp_customize->add_control(	new WP_Customize_Cropped_Image_Control( 
+		$wp_customize, 'tinydancer_hero_image', array(
 		  'label' => 'Image',
 		  'section' => 'tinydancer_hero',
 		  'context' => 'hero-image',

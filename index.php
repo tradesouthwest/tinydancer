@@ -9,9 +9,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress | ClassicPress
- * @subpackage ClassicSixteen
- * @since ClassicSixteen 1.0
+ * @package tinyDancer
+ * @since 1.0
  */
 
 get_header(); ?>
@@ -19,25 +18,67 @@ get_header(); ?>
 <main class="main-padded default-blog">
     <section class="section-content">
 
-    <?php if ( have_posts() ) : ?><?php while ( have_posts() ) : 
-        the_post(); ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope 
+        <?php if ( have_posts() ) : ?>
+            <?php while ( have_posts() ) : 
+                the_post(); ?>
+
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope 
                 itemtype="https://schema.org/Article">
-        <h3 class="article-heading">
-        <?php the_title(
-              sprintf( '<span class="post-title"><a href="%s" rel="bookmark">', 
+        
+                <h3 class="article-heading">
+                <?php the_title(
+                sprintf( '<span class="post-title"><a href="%s" rel="bookmark">', 
                        esc_attr( esc_url( get_permalink() ) ) 
                     ), '</a></span>' ); ?>
+                </h3>
+    
+                <div class="inner_content">
 
-        </h3>
-            <div class="inner_content">
+                <?php if ( is_home() || ( is_category() || is_archive() ) ) { ?>
+                    
+                    <?php if ( has_post_thumbnail() ) { ?>
+                    
+                    <div class="maxheight-sm">
 
-                <?php the_content( '', true ); ?>
+                        <?php do_action( 'tinydancer_excerpt_attachment' ); ?>
 
-            </div>
-        </article>
-    <?php endwhile; ?>
-    <?php else : ?>
+                    </div>
+
+                    <?php the_excerpt(); ?>
+                    <?php } else { ?>
+
+                        <?php the_excerpt(); ?>
+
+                    <?php } 
+                    // ends if has thumbnail ?>
+
+                    <div class="aftr-excrpt">
+                        <hr>
+                    </div>
+                    
+                    <?php } else { ?>
+                
+                    <?php the_content( '', true ); ?>
+                
+                <?php } 
+                // ends is blog or archive ?>
+
+                </div>
+            </article>
+            <?php endwhile; 
+            // end looping thru posts or print page ?>
+            
+            <nav class="pagination-nav">
+                <span class="prenav"><?php echo esc_html( 'More Pages', 'tinydancer' ); ?></span>    
+                <div class="nav-previous alignleft">
+                    <?php previous_posts_link( '<span class="prvpst-nav"> < </span>' ); ?>
+                </div>
+                <div class="nav-next alignright">
+                    <?php next_posts_link( '<span class="nxtpst-nav"> > </span>' ); ?>
+                </div>
+            </nav>
+        <?php else : 
+            // if no content found ?>
             
             <div class="post-content">
 		        
@@ -46,6 +87,7 @@ get_header(); ?>
             </div>
 
 	<?php endif; ?>
+    
     </section>
     
     <section class="section-sidebar">

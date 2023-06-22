@@ -29,27 +29,29 @@ if ( !defined ( 'TINYDANCER_VER' ) ) { define ( 'TINYDANCER_VER', time() ); }
 // FAST LOADER References ( find @#id in DocBlocks )
 // ------------------------- Actions ---------------------------
 // A1
-add_action( 'after_setup_theme',  'tinydancer_theme_setup' );
+add_action( 'after_setup_theme',   'tinydancer_theme_setup' );
 // A2
-add_action( 'after_setup_theme',  'tinydancer_theme_content_width', 0 );
+add_action( 'after_setup_theme',     'tinydancer_theme_content_width', 0 );
 // A3
-add_action( 'wp_enqueue_scripts', 'tinydancer_theme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts',      'tinydancer_theme_enqueue_styles' );
 // A4
-add_action( 'widgets_init',         'tinydancer_theme_widgets_init' );
+add_action( 'widgets_init',              'tinydancer_theme_widgets_init' );
 // A5
-add_action( 'admin_init',               'tinydancer_theme_add_editor_styles' );
+add_action( 'admin_init',                  'tinydancer_theme_add_editor_styles' );
 // A6
-add_action( 'tinydancer_render_attachment', 'tinydancer_render_attachment_link' ); 
+add_action( 'tinydancer_render_attachment', 'tinydancer_render_attachment_link' );
+// A7
+add_action( 'tinydancer_excerpt_attachment', 'tinydancer_excerpt_attachment_toanchor' );
+
 // ------------------------- Filters -----------------------------
-// F1 
-add_filter( 'body_class',                   'tinydancer_theme_body_classes' );
 // F2
 add_filter( 'widget_tag_cloud_args',    'tinydancer_theme_widget_tag_cloud_args' );
 // F3
 add_filter('excerpt_more',          'tinydancer_custom_excerpt_more'); 
 // F4
-add_filter( 'body_class',       'tinydancer_theme_custom_class' );
-
+add_filter( 'body_class',       'tinydancer_theme_heropage_class' );
+// F5
+add_filter('body_class',      'tinydancer_theme_browser_body_class');
 /**
  * Add backwards compatibility support for wp_body_open function.
  */
@@ -60,7 +62,6 @@ if ( ! function_exists( 'wp_body_open' ) ) {
     }
 }
 
-add_filter('body_class','wpb_browser_body_class');
 /** #A1
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -125,16 +126,8 @@ if ( ! function_exists( 'tinydancer_theme_setup' ) ) :
 		 *
 		 *  @since Classic Sixteen 1.2
 		 */
-		add_theme_support( "custom-header",  array(
-			'default-image'          => '',
-			'uploads'                => true,
-			'random-default'         => false,
-			'header-text'            => false,
-			'default-text-color'     => '000',
-			'wp-head-callback'       => '',
-			'admin-head-callback'    => '',
-			'admin-preview-callback' => '',
-			) );
+		add_theme_support( 'custom-logo' );
+
 		//page background image and color support
 		add_theme_support( 'custom-background', 
 			array( 
@@ -306,7 +299,6 @@ function tinydancer_theme_custom_logo() {
  * @since 1.0.2
  * @return HTML
  */
-
 function tinydancer_render_attachment_link(){
 ?>  
     <figure class="linked-attachment-container">
@@ -322,6 +314,32 @@ function tinydancer_render_attachment_link(){
     ); ?></a>
     </figure><?php 
 }
+
+
+/** #A7
+ * Attachment render for excerpts
+ *
+ * @since 1.0.2
+ * @return HTML
+ */
+
+function tinydancer_excerpt_attachment_toanchor(){
+
+	?>                 
+		<figure class="linked-attachment-container-sm">
+		<a class="exceprtwrap-link"
+		   href ="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" 
+		   title="<?php the_title_attribute( 'before=Permalink to: &after=' ); ?>">
+		<?php 
+		the_post_thumbnail( 'tinydancer-featured', array( 
+				'itemprop' => 'image', 
+				'class'  => 'tinydancer-featured',
+				'alt'  => get_the_title()
+			) 
+		); ?></a>
+		</figure><?php 
+}
+
 /** 
  * Customizer
  * suport footer background & text color
@@ -413,7 +431,7 @@ function tinydancer_custom_excerpt_more($link) {
  * 
  * @since 1.0
  */
-function tinydancer_theme_custom_class( $classes ) {
+function tinydancer_theme_heropage_class( $classes ) {
 	if ( is_page_template( 'hero-page.php' ) ) {
         $classes[] = 'hero-page';
     }
@@ -427,7 +445,7 @@ function tinydancer_theme_custom_class( $classes ) {
  * @param Global WP Browser detect
  * @return body class added to opening body tag
  */
-function wpb_browser_body_class($classes) { 
+function tinydancer_theme_browser_body_class($classes) { 
     global $is_iphone, $is_chrome, $is_safari, $is_NS4, $is_opera, $is_macIE, 
 		   $is_winIE, $is_gecko, $is_lynx, $is_IE, $is_edge;
   

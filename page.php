@@ -17,15 +17,17 @@ get_header(); ?>
     <section class="section-content">
     <?php if ( have_posts() ) : ?><?php while ( have_posts() ) : 
         the_post(); ?>
-     <?php 
-        do_action( 'tinydancer_render_attachment' ); 
-        ?>
+     
         <div class="inner_content">
 
-        <?php the_content( '', true ); ?>
+            <?php do_action( 'tinydancer_render_attachment' ); ?>
+
+            <?php the_content( '', true ); ?>
 
         </div>
-    <?php endwhile; ?><?php else : ?>
+    <?php endwhile; ?>
+    
+    <?php else : ?>
             
             <div class="post-content">
 		        
@@ -33,14 +35,15 @@ get_header(); ?>
             
             </div>
 
-		    <?php endif; ?>
+	<?php endif; ?>
+    
     </section>
     
-    <section class="section-sidebar">
+        <section class="section-sidebar">
 
-        <?php get_sidebar(); ?>
+            <?php get_sidebar(); ?>
 
-    </section>
+        </section>
 </main>
 
 <?php get_footer(); ?>
