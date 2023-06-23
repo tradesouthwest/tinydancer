@@ -52,6 +52,8 @@ add_filter('excerpt_more',          'tinydancer_custom_excerpt_more');
 add_filter( 'body_class',       'tinydancer_theme_heropage_class' );
 // F5
 add_filter('body_class',      'tinydancer_theme_browser_body_class');
+// F6
+add_filter( 'body_class',   'tinydancer_theme_bloglayout_class' );
 /**
  * Add backwards compatibility support for wp_body_open function.
  */
@@ -462,5 +464,27 @@ function tinydancer_theme_browser_body_class($classes) {
 	elseif ($is_edge)   $classes[] ='ms-edge';
 	else $classes[] = 'unknown-browser';
 		
+	return $classes;
+} 
+
+
+/** #F6
+ * Adding body class to the blog page flex option
+ * 
+ * @since 1.0
+ */
+function tinydancer_theme_bloglayout_class($classes){
+
+	if ( !basename( get_page_template() ) === 'index.php' ) return $classes;
+	
+	if ( get_theme_mods() ) : 
+		$dloop = get_theme_mod( 'tinydancer_blog_layout' );
+
+		if ( 'row' == $dloop ) {
+        	$classes[] = 'dancer-loop-horizontal';
+		}
+
+	endif;
+	
 	return $classes;
 } 

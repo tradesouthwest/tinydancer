@@ -39,6 +39,11 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
 		'title' => 'Hero and Headings Section',
 		'priority' => 20
 	  ));
+	// Add layout section
+    $wp_customize->add_section( 'tinydancer_layout', array(
+		'title' => 'Blog and Page Settings',
+		'priority' => 25
+	  ));
 
     //-----------------Settings and Controls ----------------------------------
 	
@@ -116,6 +121,23 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
 			)
 		)
 	);
+	// Add setting & control for hero h2
+    $wp_customize->add_setting( 'tinydancer_blog_layout', array(
+		'default' => 'column',
+		'transport' => $transport
+	));
+	$wp_customize->add_control( 'tinydancer_blog_layout', array(
+		'label'   => 'Display Blog Posts',
+		'section'  => 'tinydancer_layout',
+		'settings'  => 'tinydancer_blog_layout',
+		'description' => __( 'Choose how to set posts on blog page. Column or Row?', 'tinydancer'),
+		'type'        => 'select',
+    	'choices'     => array(
+        	'default' => 'Select Layout',
+        	'row'     => 'Row',
+        	'column'  => 'Column',
+    		)
+	));
 
 }
 // Easy Boolean checker for checkbox

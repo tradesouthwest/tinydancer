@@ -17,8 +17,9 @@ get_header(); ?>
 
 <main class="main-padded default-blog">
     <section class="section-content">
-
+    
         <?php if ( have_posts() ) : ?>
+        <div class="dancer-loop">
             <?php while ( have_posts() ) : 
                 the_post(); ?>
 
@@ -50,7 +51,7 @@ get_header(); ?>
                         <?php the_excerpt(); ?>
 
                     <?php } 
-                    // ends if has thumbnail ?>
+                    // Ends if has thumbnail ?>
 
                     <div class="aftr-excrpt">
                         <hr>
@@ -61,13 +62,13 @@ get_header(); ?>
                     <?php the_content( '', true ); ?>
                 
                 <?php } 
-                // ends is blog or archive ?>
+                // Ends is blog or archive ?>
 
                 </div>
             </article>
             <?php endwhile; 
-            // end looping thru posts or print page ?>
-            
+            // Ends looping thru posts, or print page ?>
+        </div>
             <nav class="pagination-nav">
                 <span class="prenav"><?php echo esc_html( 'More Pages', 'tinydancer' ); ?></span>    
                 <div class="nav-previous alignleft">
@@ -86,7 +87,7 @@ get_header(); ?>
             
             </div>
 
-	<?php endif; ?>
+	    <?php endif; ?>
     
     </section>
     

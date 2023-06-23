@@ -416,8 +416,22 @@ main {
   width: 70%;
   display: flex;
   flex-direction: column;
-}
 
+}
+.dancer-loop {
+  display: inherit;
+}
+.dancer-loop-horizontal .dancer-loop {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dancer-loop-horizontal .dancer-loop article{
+  flex-basis: 31%;
+  margin: 1%;
+}
+.dancer-loop-horizontal .dancer-loop article:last-child{
+  margin-right: 1%;
+}
 /* Gallery
  ---------------------------------------- */
 
