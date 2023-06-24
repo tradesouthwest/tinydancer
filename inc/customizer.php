@@ -90,16 +90,27 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
 		  'height' => 520
 		) )
 	);
-	$wp_customize->add_setting( 'tinydancer_padding_content', array(
+	$wp_customize->add_setting( 'tinydancer_hero_calltotext', array(
+		'default' => '',
+		'transport' => 'refresh'
+	));
+	$wp_customize->add_control( 'tinydancer_hero_calltotext', array(
+		'label'   => 'Call To Action Button Text',
+		'section'  => 'tinydancer_hero',
+		'settings'  => 'tinydancer_hero_calltotext',
+		'type'       => 'text',
+		'description' => __( 'Leave blank to remove/not show button.', 'tinydancer')
+	));
+	$wp_customize->add_setting( 'tinydancer_hero_calltourl', array(
 		'default' => '',
 		'transport' => $transport
 	));
-	$wp_customize->add_control( 'tinydancer_padding_content', array(
-		'label'   => 'Content Padding',
+	$wp_customize->add_control( 'tinydancer_hero_calltourl', array(
+		'label'   => 'Call To Action Button URL',
 		'section'  => 'tinydancer_hero',
-		'settings'  => 'tinydancer_padding_content',
-		'type'       => 'number',
-		'description' => __( 'Change padding space of Content sections.', 'tinydancer')
+		'settings'  => 'tinydancer_hero_calltourl',
+		'type'       => 'url',
+		'description' => __( 'Styles for button are using ".cta-tinyd"', 'tinydancer')
 	));
 
 	$wp_customize->add_setting(
@@ -137,6 +148,36 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
         	'row'     => 'Row',
         	'column'  => 'Column',
     		)
+	));
+	// Add setting & control for content alignment
+    $wp_customize->add_setting( 'tinydancer_content_align', array(
+		'default' => 'justify',
+		'transport' => 'refresh'
+	));
+	$wp_customize->add_control( 'tinydancer_content_align', array(
+		'label'   => 'Text Align Style for Content',
+		'section'  => 'tinydancer_layout',
+		'settings'  => 'tinydancer_content_align',
+		'description' => __( 'Choose the text alignment for central content.', 'tinydancer'),
+		'type'        => 'select',
+    	'choices'     => array(
+        	'default' => 'Default/Justify',
+        	'left'    => 'Left',
+			'right'   => 'Right',
+        	'justify' => 'Justify',
+			'center'  => 'Center',
+    		)
+	));
+	$wp_customize->add_setting( 'tinydancer_padding_content', array(
+		'default' => '',
+		'transport' => $transport
+	));
+	$wp_customize->add_control( 'tinydancer_padding_content', array(
+		'label'   => 'Content Padding',
+		'section'  => 'tinydancer_blog_layout',
+		'settings'  => 'tinydancer_padding_content',
+		'type'       => 'number',
+		'description' => __( 'Change padding space of Content sections.', 'tinydancer')
 	));
 
 }

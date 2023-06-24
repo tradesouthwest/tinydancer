@@ -59,7 +59,9 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
   line-height: 1.485
 }
- 
+h1{
+  font-size: xx-large
+} 
 .page-header, 
 .section-content, 
 .section-sidebar, 
@@ -207,8 +209,9 @@ table>tfoot>tr>td {
 }
 .site-logo img{
   position: relative;
-  max-height: 200px;
+  max-height: 148px;
   width: max-content;
+  left: 2.5em;
 }
 /* ************************************************** 3.1 - Nav */
 .page-nav .primary-menu {
@@ -264,39 +267,35 @@ table>tfoot>tr>td {
   list-style-type: none;
 }
 .primary-menu .sub-menu {
-
   display: flex;
   flex-direction: column;
   overflow-x: visible;
+  margin-left: 1.384em;
 }
 .primary-menu .menu-item-has-children{
   flex-direction: column;
 }
 .primary-menu .sub-menu > li{
   display: none;
-opacity: 0;
+  opacity: 0;
   white-space: pre-wrap;
   min-height: 2.64em;
   margin-top: -.4em;
   box-sizing: inherit;
-  border-bottom: thin solid #888
 }
 .primary-menu .menu-item-has-children:hover .sub-menu > li,
 .primary-menu .menu-item-has-children:focus .sub-menu > li{
-display: flex;
-opacity: 1;
-
+  display: flex;
+  opacity: 1;
 }
-@media (max-width: 800px) {
-  .page-nav .primary-menu {
-    flex-direction: column;
-    height: 100%;
-
-  }
-  .primary-menu .menu-item-has-children .sub-menu > li{
-    display: flex;
-    opacity: 1;
-  }
+.primary-menu .menu-item-has-children > a:after{
+  content: "^";
+  transform: rotate(180deg);
+  position:relative;
+  color: inherit;
+  left: 4%;
+  right: 4%;
+  opacity: .64
 }
 
 /**
@@ -373,6 +372,7 @@ section {
 }
 .prenav{
   margin-right:1em;
+  opacity: .64
 }
 /**
 * ************************************************** 5.0 - Wide Banner Top
@@ -399,6 +399,23 @@ section {
   padding-right: 5px;
   text-shadow: 0 .5px .5px rgba(0,0,0,0.12), 0 1px 1px rgba(240,240,240,0.4);
 }
+.hero-inner-content .hgroup{
+  padding-left: 30px;
+}
+.cta-tinyd{
+  font-size: 1.2em;
+  background: rgba(242, 242, 242, .86);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 1px #777;
+
+}
+.call-to-action span{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 30px;
+}
 /**
  * ************************************************** 6.0 Main 
  * horizontal-layout TODO set background rgba in customzr
@@ -416,7 +433,6 @@ main {
   width: 70%;
   display: flex;
   flex-direction: column;
-
 }
 .dancer-loop {
   display: inherit;
@@ -520,13 +536,14 @@ main {
   width: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .section-sidebar .widget ul{
   list-style: none;
+  padding: 0 1em 0 1em;
 }
 .inner-sidebar {
-  padding: .825em 0 0 1.875em;
+  padding: 1.938em 0 0 1.938em;
   box-sizing: border-box;
 }
 #wp-calendar {
@@ -544,7 +561,8 @@ main {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 30px
 }
 .page-footer > .section-third{
   flex: 1 1 0;
@@ -554,6 +572,10 @@ main {
   max-width: 1440px;
   height: 2.67em;
   background: #2d2d2d;
+  padding: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .footer-base a,
 .footer-base{
@@ -568,17 +590,13 @@ main {
   border-radius: 50%
 }
 
-/* begin begin Back to Top button  */
+/* Back to Top button */
 
 .back_to_top {
-  position: fixed;
-  bottom: 3px;
-  right: calc(-17px + 5vw);
-  z-index: 9999;
   width: 30px;
   height: 30px;
   text-align: center;
-  line-height: 30px;
+  line-height: 35px;
   cursor: pointer;
 }
 
@@ -594,31 +612,40 @@ main {
 /**
  * ************************************************** 10.0 - Media Breakpoints
  */
-  
-  @media screen and (min-width: 1025px){
-    body{ 
-      max-width: 1440px;
-      margin: 0 auto;
-    }
-    .back_to_top {
-    
-        left: 85%;
-    }
+@media screen and (max-width: 800px) {
+  .page-nav .primary-menu {
+    flex-direction: column;
+    height: 100%;
+
   }
-  @media screen and (max-width: 768px){
-    .home .home-wide-top{
-      color: inherit;
-    }
-    main {
-      display: flex;
-      flex-direction: column;
-    }
-    .page-footer > .section-third,
-    .section-content,
-    .section-sidebar{
-      width:100%; 
-    }
-    #wp-calendar td{
-      padding: 3px;
-    }
-  } 
+  .primary-menu .menu-item-has-children .sub-menu > li{
+    display: flex;
+    opacity: 1;
+  }
+  .home .home-wide-top{
+    color: inherit;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  .page-footer,
+  .section-content,
+  .section-sidebar{
+    width:100%; 
+    flex-direction: column;
+  }
+  #wp-calendar td{
+    padding: 3px;
+  }
+}
+@media screen and (min-width: 1025px){
+  body{ 
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .back_to_top {
+  
+      left: 85%;
+  }
+} 

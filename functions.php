@@ -42,7 +42,10 @@ add_action( 'admin_init',                  'tinydancer_theme_add_editor_styles' 
 add_action( 'tinydancer_render_attachment', 'tinydancer_render_attachment_link' );
 // A7
 add_action( 'tinydancer_excerpt_attachment', 'tinydancer_excerpt_attachment_toanchor' );
-
+// A8
+add_action('tinydancer_render_hero', 'tinydancer_render_hero_section');
+// A9
+add_action( 'tinydancer_check_pagination', 'tinydancer_check_pagination_pre' );
 // ------------------------- Filters -----------------------------
 // F2
 add_filter( 'widget_tag_cloud_args',    'tinydancer_theme_widget_tag_cloud_args' );
@@ -352,7 +355,7 @@ require get_template_directory() . '/inc/customizer.php';
 
 require get_template_directory() . '/inc/theme-page-options.php';
 
-/** #A7
+/** #A8
  * Render hero section
  * @since 1.0
  * @param string $himg Theme mod url of hero image.
@@ -360,32 +363,71 @@ require get_template_directory() . '/inc/theme-page-options.php';
  * @param string $htitle theme mod text
  * 
  */
-// #A7
-add_action('tinydancer_render_hero', 'tinydancer_render_hero_section');
 function tinydancer_render_hero_section() {
+
+	$cta_text = '';
+	if ( get_theme_mods() )  : 
+		
+		$cta_url  = get_theme_mod( 'tinydancer_hero_calltourl' );
+		$cta_text = get_theme_mod( 'tinydancer_hero_calltotext' );
+	endif;
 
 	// Check if the image really exists
 	$himg = wp_get_attachment_url( get_theme_mod( 
 		'tinydancer_hero_image' ) );
 	if ( empty($himg) ) { 
+
 		$himg = get_template_directory_uri() . '/imgs/default-hero.jpg'; 
 	}
-	$hout = 'style="background-image: url( '.$himg.' );"';
-?>
-	<div class="home-wide-top">
-		<div class="hero-inner-content" <?php print($hout); ?>>
+	$hout = 'style="background-image: url( '. $himg .' );"'; ?>
 
-		<?php
-		if( $htitle = get_theme_mod('tinydancer_hero_title') ) {
-			echo '<h2 class="hero-title">' . $htitle . '</h2>';
-		}
-		if( $hheading = get_theme_mod( 'tinydancer_hero_heading', '' ) ) {
-			echo '<h3 class="hero-heading">' . $hheading . '</h3>';
-		} ?>
-	
+	<div class="home-wide-top">
+		<div class="hero-inner-content" <?php print( $hout ); ?>>
+			<header class="hgroup">
+			<?php
+			if( $htitle = get_theme_mod('tinydancer_hero_title') ) {
+
+				echo '<h2 class="hero-title">' . $htitle . '</h2>';
+			}
+			if( $hheading = get_theme_mod( 'tinydancer_hero_heading', '' ) ) {
+
+				echo '<h3 class="hero-heading">' . $hheading . '</h3>';
+			} ?>
+			</header>
+			<?php if ( '' != $cta_text ) : ?>
+
+			<div class="call-to-action">
+				<span>
+					<a class="button cta-tinyd" href="<?php 
+						echo esc_url( $cta_url ); ?>" title=""><?php 
+						echo esc_html( $cta_text ); ?></a>
+				</span>
+			</div>
+			<?php endif; ?>
+
 		</div>
 	</div>
 	<?php 
+}
+
+/** #A9
+ * Show prenav text if pagination
+ * 
+ * @since 1.0
+ * @param string $prev_link Boolean
+ * @param string $next_link Boolean
+ */
+function tinydancer_check_pagination_pre(){
+    $prev_link = get_previous_posts_link();
+	$next_link = get_next_posts_link();
+	
+	if ($prev_link || $next_link) { 
+
+	echo '<span class="prenav">' . esc_html__( 'More Pages', 'tinydancer' ) . '</span>';
+	} else { 
+
+	echo '<span class="prenav">' . esc_html__( 'No more entries for this page.', 'tinydancer' ) . '</span>';
+	} 
 }
 
 

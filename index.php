@@ -70,7 +70,8 @@ get_header(); ?>
             // Ends looping thru posts, or print page ?>
         </div>
             <nav class="pagination-nav">
-                <span class="prenav"><?php echo esc_html( 'More Pages', 'tinydancer' ); ?></span>    
+                <?php do_action( 'tinydancer_check_pagination' ); ?>
+                
                 <div class="nav-previous alignleft">
                     <?php previous_posts_link( '<span class="prvpst-nav"> < </span>' ); ?>
                 </div>

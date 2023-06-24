@@ -38,7 +38,7 @@
     </div>
     <?php } ?>
 </footer>
-    <div class="page-footer footer-base">
+    <div class="footer-base">
         <div class="site-copyright">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
         <?php 
