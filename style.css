@@ -217,8 +217,8 @@ table>tfoot>tr>td {
 .page-nav .primary-menu {
   display: flex;
   flex-direction: row;
+  
 }
-
 .page-nav {
   width: 100%;
   margin: 0;
@@ -226,7 +226,6 @@ table>tfoot>tr>td {
   box-sizing: border-box
 }
 .primary-menu ul {  
-  
   list-style: none;  
   margin: 0;  
   padding: 0;  
@@ -239,7 +238,9 @@ table>tfoot>tr>td {
   display: flex;
   height: 2.444em;
 }
-
+.page-nav ul li {
+  justify-content: space-between;
+}
 .page-nav a {
 	background: #eee;
 	box-sizing: inherit;
