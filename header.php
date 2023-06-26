@@ -37,13 +37,15 @@
                 <div class="site-description"><?php echo get_bloginfo( 'description', 'display' ); ?></div>
             </div>
         </header>
-            <nav id="sitecontent" class="page-nav">
+            <nav id="main__nav" class="page-nav-wrapper">
                 <?php
                 wp_nav_menu(
                     array(
                         'theme_location' => 'primary-menu',
-                        'menu_class' => 'primary-menu',
+                        'menu_class' => 'page-nav',
                     )
                 );
                 ?>
+              <input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="label-toggle">menu</label>
             </nav>

@@ -6,35 +6,32 @@
  * Please note that this is the WordPress construct of pages and that
  * other "pages" on your WordPress site will use a different template.
  *
- * @package ClassicPress
- * @subpackage ClassicSixteen
- * @since ClassicSixteen 1.0
+ * @package tinydancer
+ * @since tinydancer 1.0
  */
 
 get_header(); ?>
   
 <main class="main-padded default-page">
+
     <section class="section-content">
-    <?php if ( have_posts() ) : ?><?php while ( have_posts() ) : 
-        the_post(); ?>
-        <h3 class="article-heading"><?php the_title(); ?></h3>
-     <?php 
-        do_action( 'tinydancer_render_attachment' ); 
-        ?>
-        <div class="inner_content">
+   
+        <?php while ( have_posts() ) : the_post(); ?>
+            <h3 class="article-heading"><?php the_title(); ?></h3>
+            <?php 
+                do_action( 'tinydancer_render_attachment' ); ?>
 
-        <?php the_content( '', true ); ?>
+            <div class="inner_content">
 
-        </div>
-    <?php endwhile; ?><?php else : ?>
-            
-            <div class="post-content">
-		        
-            <?php echo esc_url( home_url('/') ); ?>
-            
+                <?php the_content( ); ?>
+
             </div>
-
-		    <?php endif; ?>
+        <?php 
+        // If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) {
+				comments_template();
+			} ?>
+            <?php endwhile; ?>
     </section>
     
     <section class="section-sidebar">
