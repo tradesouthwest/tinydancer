@@ -1,9 +1,10 @@
 /* begin Back to Top button  */
+
 (function() {
   'use strict';
 
   function trackScroll() {
-    var scrolled = window.pageYOffset;
+    var scrolled = window.scrollY;
     var coords = document.documentElement.clientHeight;
 
     if (scrolled > coords) {
@@ -25,4 +26,5 @@
 
   window.addEventListener('scroll', trackScroll);
   goTopBtn.addEventListener('click', backToTop);
+
 })(); 

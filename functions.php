@@ -175,7 +175,7 @@ function tinydancer_theme_content_width() {
  */
 function tinydancer_theme_enqueue_styles() {
 	wp_enqueue_style( 
-		'tinyDancer-style', 
+		'tinydancer-style', 
 		get_stylesheet_directory_uri() .'/style.css',
 		array(),
 		TINYDANCER_VER
