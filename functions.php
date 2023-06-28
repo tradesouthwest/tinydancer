@@ -377,7 +377,7 @@ function tinydancer_render_hero_section() {
 	
     if ( !empty($himg) )  { 
 		
-		$hout = 'style="background-image: url( '. esc_url( $himg ) .' );"'; 
+		$hout  =  'style="background-image: url('. esc_url( $img ) .'); "';
 		$class = 'tdnc-viewable';
 	} else {
 
@@ -386,7 +386,7 @@ function tinydancer_render_hero_section() {
 	} 
 	?>
 	<div class="home-wide-top">
-		<div class="hero-inner-content <?php echo esc_attr( $class ); ?>" <?php echo strip_tags( $hout ); ?>>
+		<div class="hero-inner-content <?php echo esc_attr( $class ); ?>" <?php echo esc_attr( $hout ); ?>>
 			<header class="hgroup">
 			<?php
 			if( $htitle = get_theme_mod('tinydancer_hero_title') ) {

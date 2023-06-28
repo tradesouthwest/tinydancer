@@ -28,10 +28,11 @@ get_header(); ?>
             <?php post_class(); ?> itemscope itemtype="https://schema.org/Article">
         
                 <h3 class="article-heading">
-                <?php the_title(
-                sprintf( '<span class="post-title"><a href="%s" rel="bookmark">', 
-                       esc_attr( esc_url( get_permalink() ) ) 
-                    ), '</a></span>' ); ?>
+                <?php 
+                the_title( sprintf( '<span class="post-title"><a href="%s" rel="bookmark">', 
+                        esc_attr( esc_url( get_permalink() ) ) 
+                    ), '</a></span>' 
+                ); ?>
                 </h3>
     
                 <div class="inner_content">
