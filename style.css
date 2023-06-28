@@ -266,8 +266,8 @@ top: -1em;
   border-bottom: 3px solid #badae5;
   margin: 0;
   padding: .25em 0;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 1440px;
+  margin: 0;
 }
 
 .page-nav{
@@ -277,6 +277,7 @@ top: -1em;
   position: relative;
   z-index: 999;
   align-items: flex-start;
+  padding-left: 0;
 }
 .page-nav li{
   display: flex;
@@ -291,6 +292,7 @@ top: -1em;
 }
 .page-nav .sub-menu {
   margin-left: -2.222em;
+  position: relative; /* must change to absolut on wide screen */
 }
 
 .page-nav a {
@@ -298,6 +300,7 @@ top: -1em;
   color: #464646;
   padding-left: .75em;
   padding-right: .75em;
+  margin-right: 2px;
   display: flex;
   position: relative;
   white-space: pre;
