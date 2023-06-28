@@ -20,25 +20,26 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<a class="skip-link screen-reader-text" href="#sitecontent"><?php _e( 'Skip to content', 'classicsixteen' ); ?></a>
-    <div class="page">
+    <?php wp_body_open(); ?>
+    <a class="skip-link screen-reader-text" href="#sitecontent"><?php esc_html_e( 'Skip to content', 'tinydancer' ); ?></a>
+    <div class="page"><!-- ends in footer -->
         <header class="page-header">
         <?php 
-                if( has_custom_logo() ) : ?>
-                <div class="site-logo">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <?php echo wp_kses_post( force_balance_tags( 
-                        tinydancer_theme_custom_logo() ) ); ?></a>
-                </div>
-                <?php endif; ?>
+            if( has_custom_logo() ) : ?>
+
+            <div class="site-logo">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" 
+                   rel="bookmark"><?php echo wp_kses_post( force_balance_tags( tinydancer_theme_custom_logo() ) ); ?></a>
+            </div>
+        <?php 
+            endif; ?>
+
             <div class="page-header-inner">
                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                <div class="site-description"><?php echo get_bloginfo( 'description', 'display' ); ?></div>
+                <div class="site-description"><?php echo esc_html( get_bloginfo( 'description', 'display' ) ); ?></div>
             </div>
         </header>
             <div class="nav-container">
-           
                 <nav id="main__nav" class="page-nav-wrapper">
                     
                     <?php

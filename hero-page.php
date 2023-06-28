@@ -15,25 +15,31 @@ get_header(); ?>
     
     <main class="main-padded with-hero-page">
         <section class="section-content">
-        <?php if ( have_posts() ) : ?><?php while ( have_posts() ) : 
-            the_post(); ?>
-        <div class="post-content">
-            <div class="inner_content">
+        
+        <?php if ( have_posts() ) : ?>
+            <?php while ( have_posts() ) : the_post(); ?>
+        
+            <div class="post-content">
+                <div class="inner_content">
 
-            <?php the_content( '', true ); ?>
+                <?php the_content( '', true ); ?>
 
+                </div>
             </div>
-        </div>
-    <?php endwhile; ?><?php else : ?>
+        
+            <?php endwhile; ?>
+
+        <?php else : ?>
             
             <div class="post-content">
 		        
-            <?php echo esc_url( home_url('/') ); ?>
+                <?php echo esc_url( home_url('/') ); ?>
             
             </div>
 
-		    <?php endif; ?>
-    </section>
+		<?php endif; ?>
+
+        </section>
     
         
         <section class="section-sidebar">

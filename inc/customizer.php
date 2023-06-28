@@ -75,7 +75,7 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
     );  
 	  // Add setting & control for hero image
 	  $wp_customize->add_setting( 'tinydancer_hero_image', array(
-		'default' => get_template_directory_uri() . '/imgs/default-hero.jpg',
+		'default' => '', //get_template_directory_uri() . '/imgs/default-hero.jpg',
 		'transport' => 'refresh'
 	  ));
   
@@ -111,6 +111,17 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
 		'settings'  => 'tinydancer_hero_calltourl',
 		'type'       => 'url',
 		'description' => __( 'Styles for button are using ".cta-tinyd"', 'tinydancer')
+	));
+	$wp_customize->add_setting( 'tinydancer_hero_callposition', array(
+		'default' => '4',
+		'transport' => 'refresh'
+	));
+	$wp_customize->add_control( 'tinydancer_hero_callposition', array(
+		'label'   => 'Call To Action Position',
+		'section'  => 'tinydancer_hero',
+		'settings'  => 'tinydancer_hero_callposition',
+		'type'       => 'number',
+		'description' => __( 'Vertical positioning only. Uses em not px. Decimals OK.', 'tinydancer')
 	));
 
 	$wp_customize->add_setting(

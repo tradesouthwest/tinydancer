@@ -18,13 +18,14 @@ get_header(); ?>
 <main class="main-padded default-blog">
     <section class="section-content">
     
-        <?php if ( have_posts() ) : ?>
-        <div class="dancer-loop">
-            <?php while ( have_posts() ) : 
-                the_post(); ?>
+    <?php if ( have_posts() ) : ?>
 
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope 
-                itemtype="https://schema.org/Article">
+        <div class="dancer-loop">
+
+            <?php while ( have_posts() ) : the_post(); ?>
+
+            <article id="post-<?php the_ID(); ?>" 
+            <?php post_class(); ?> itemscope itemtype="https://schema.org/Article">
         
                 <h3 class="article-heading">
                 <?php the_title(
@@ -50,8 +51,8 @@ get_header(); ?>
 
                         <?php the_excerpt(); ?>
 
-                    <?php } 
-                    // Ends if has thumbnail ?>
+                    <?php 
+                    } // Ends if has thumbnail ?>
 
                     <div class="aftr-excrpt">
                         <hr>
@@ -61,13 +62,13 @@ get_header(); ?>
                 
                     <?php the_content( '', true ); ?>
                 
-                <?php } 
-                // Ends is blog or archive ?>
+                <?php 
+                } // Ends is blog or archive ?>
 
                 </div>
             </article>
-            <?php endwhile; 
-            // Ends looping thru posts, or print page ?>
+            <?php 
+            endwhile; // Ends looping thru posts, or print page ?>
         </div>
             <nav class="pagination-nav">
                 <?php do_action( 'tinydancer_check_pagination' ); ?>
@@ -79,8 +80,9 @@ get_header(); ?>
                     <?php next_posts_link( '<span class="nxtpst-nav"> > </span>' ); ?>
                 </div>
             </nav>
-        <?php else : 
-            // if no content found ?>
+    <?php 
+    // if no content found
+    else : ?>
             
             <div class="post-content">
 		        
@@ -88,7 +90,8 @@ get_header(); ?>
             
             </div>
 
-	    <?php endif; ?>
+    <?php 
+    endif; ?>
     
     </section>
     

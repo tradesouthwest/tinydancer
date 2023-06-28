@@ -6,17 +6,16 @@
  * Please note that this is the WordPress construct of pages and that
  * other "pages" on your WordPress site will use a different template.
  *
- * @package ClassicPress
- * @subpackage ClassicSixteen
- * @since ClassicSixteen 1.0
+ * @package TinyDancer
+ * @since tinydancer 1.0.1
  */
 
 get_header(); ?>
   
 <main class="main-padded default-page">
     <section class="section-content">
-    <?php if ( have_posts() ) : ?><?php while ( have_posts() ) : 
-        the_post(); ?>
+    <?php if ( have_posts() ) : ?>
+        <?php while ( have_posts() ) : the_post(); ?>
      
         <div class="inner_content">
 
@@ -25,7 +24,8 @@ get_header(); ?>
             <?php the_content( '', true ); ?>
 
         </div>
-    <?php endwhile; ?>
+    
+        <?php endwhile; ?>
     
     <?php else : ?>
             
