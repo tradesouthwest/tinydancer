@@ -38,10 +38,7 @@
             </div>
         </header>
             <div class="nav-container">
-                <!--<fieldset class="toggle-page-nav">
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="label-toggle">menu</label>
-                    </fieldset>-->
+           
                 <nav id="main__nav" class="page-nav-wrapper">
                     
                     <?php

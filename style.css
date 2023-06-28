@@ -14,12 +14,14 @@ This theme, like ClassicPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-/**
- * Table of Contents
+/* ===========================
+    CSS Index         
+==============================
  *
  * 1.0 - Body/Page 
  * 2.0 - Universal padding and margins and alignments
  * 3.0 - Site Header
+ * * 3.1 - Navigation
  * 4.0 - Page
  * 5.0 - Wide Banner Top
  * 6.0 - Main 
@@ -31,11 +33,19 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /**
  * 1.0 - Body | Page
- *
+ * perf overhead. Anecdotal evidence suggests border-box isn’t significant*
+ * @see *https://docs.google.com/spreadsheets/d/1jJUuSBQj6a3imkX_QYZDVW5eDyE5tXULTkqnI7rMLU8/edit#gid=0
+ * ^from https://www.paulirish.com/2012/box-sizing-border-box-ftw/
  */
+/* apply a natural box layout model to all elements, but allowing components to change */
+
 html {
-  height: 100vh;
+  box-sizing: border-box;
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
     padding: 0;
     font-size: 100%;
@@ -44,12 +54,19 @@ body {
 .page{
     margin: 0 auto;
 }
-
+:root {
+  --dark: #21243d;
+  --dark-hover: #131523;
+  --pink: #ff7c7c;
+  --yellow: #ffd082;
+  --blue: #88e1f2;
+}
 /**
  * ************************************************** 2.0 - Universal
  *
  */
 /* Allow percentage-based heights in the application */
+
 html, body {
   height: 100%;
 }
@@ -244,142 +261,90 @@ top: -1em;
 }
 
 /* ************************************************** 3.1 - Nav */
+.page-nav-wrapper{
+  width: 100%;
+  border-bottom: 3px solid #badae5;
+  margin: 0;
+  padding: .25em 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-nav{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 999;
+  align-items: flex-start;
+}
+.page-nav li{
+  display: flex;
+  align-items: flex-start;
+  max-width: fit-content;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.page-nav .menu-item-has-children{
+  border-left: 2px dotted #ccc;
+}
+.page-nav .sub-menu {
+  margin-left: -2.222em;
+}
+
 .page-nav a {
-	box-sizing: border-box;
+  box-sizing: border-box;
   color: #464646;
   padding-left: .75em;
   padding-right: .75em;
   display: flex;
   position: relative;
-  white-space: nowrap;
+  white-space: pre;
   align-items: center;
   justify-content: center;
-  margin: 0 2px 0 0;
-  /*min-width: calc( 138px + 1vw );*/
+  width: 100%;
+  height: 2.336em;
   text-align: center;
-  min-height: 2.21em;
-  background-image: linear-gradient(#f0f0f0, #fefefe, #efefef);
+  background-image: linear-gradient(#f9f9f9, #fefefe, #f6f6f6);
   font-weight: inherit;
   text-shadow: 0 .5px .5px rgba(0,0,0,0.12), 0 1px 1px rgba(240,240,240,0.24);
-border: thin solid #eee
+  border: thin solid #eee
 }
 .page-nav a:hover,
 .page-nav a:focus{
-  color: maroon;
+  color: olive;
 }
-.page-nav-wrapper{
-  width: 100%;
-  max-width: 1480px;
-  margin: 0;
-  align-items: baseline;
-  display: flex;
-  box-sizing: border-box;
-}
-.page-nav ul {
-  display: flex;
-  flex-direction: column;
- 
-  list-style-type: none;
-  position: relative;
-  z-index: 999;
-}
+  @media screen and (min-width: 800px){
+    .page-nav-wrapper{
+      height: 4.5em;
 
-.page-nav ul.sub-menu {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  flex-direction: column;
+    }
+    .page-nav{
+      flex-direction: row;
+      height: 4em;
+    }
+    .page-nav .menu-item-has-children .sub-menu{
+      opacity:0;
+      top:2.5em;
+      position:absolute;
+    }
+    .page-nav .menu-item-has-children:hover .sub-menu{
+      opacity: 1;
 
-}
-.page-nav li{ 
-  display: flex;
-  margin: 0;
-  position: relative;
-  padding: 0;
-
-  height: 2.2058em;
- justify-content: flex-start;
-  align-self: flex-end;
-
-}
-
-.menu-item-has-children .sub-menu li {
-  border-left: 1px dashed #ccc;
-  margin-left: 1px;
-  top: 1em;
-  font-size: .938rem;
-  flex-direction: column;
-  display:none;
-}
-.menu-item-has-children .sub-menu:hover li,
-.menu-item-has-children .sub-menu:focus li {
-  flex-direction: column;
-  display:flex;
-}
-.page-nav .sub-menu li:first-child{
-  border-left: 1px dashed #000;
-  margin-left: 1px;
-  font-size: .938rem
-}
-.page-nav .sub-menu:after{
-  content: "+";
-  height: 2.22em;
-  width: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: thin dotted #ace;
-  border-left: 0;
-  background-image: linear-gradient(#fafafa, #e0e5e9, #f9f9f9);
-  font-size: 1em;
-  color: currentColor;
-  cursor: pointer;
-  opacity: 1;
-  margin-right: 2px;
-  margin-left: -2px;
-}
-.page-nav .sub-menu:hover:after{
-opacity: 0;
-}
-.page-nav-wrapper{
-  opacity: 1;
-  height: 100%;
-}
-#menu-toggle:checked ~ .page-nav-wrapper{
-  opacity: 1;
-  height: fit-content;
-} 
-.toggle-page-nav{
-    display: flex;
-}
-
-@media screen and (min-width: 800px) {
-  .page-nav ul{
-    flex-direction: row;
-  }
-  .page-nav-wrapper{
-    opacity: 1;
-    height: 4em;
-  }
-  .toggle-page-nav{
-    display:none;
+    }
+    .page-nav li{
+      margin: 0;
+      align-items: center;
+      min-width: calc( 5em + 1vw );
+      height: 2.4444em;
+    }
+    .page-nav .menu-item-has-children:hover ~ .page-nav-wrapper{
+      max-height: 100%;
+      overflow: visible;
+    }
   }
 
-  .page-nav {
-    flex-direction: row;
-    display: flex;
-    justify-content: baseline;
-  }
-  .page-nav ul.sub-menu li  {
-    position: relative;
-    left: -28%;
-    top: 2.222em
-  }
-  .page-nav .sub-menu li:first-child{
-    left: -65%
-  }
-  
-}
 /**
  * ************************************************** 4.0 - Page
  * This is a wrapper for all content below the header.
@@ -650,6 +615,9 @@ cite:before{
 .inner-sidebar {
   padding: 1.938em 0 0 1.938em;
   box-sizing: border-box;
+  width: 90%;
+  margin-right: 1em;
+  margin-left: 1em;
 }
 #wp-calendar {
   table-layout:fixed;
@@ -741,7 +709,7 @@ cite:before{
   .section-sidebar{
     width:100%; 
     flex-direction: column;
-  }
+  } /*
   .page-header,
   .nav-container{
     width: 100%;
@@ -762,7 +730,7 @@ cite:before{
   .page-nav ul.sub-menu > li{
     left: -12%;
     top: 2.444em;
-  }
+  } */
   #wp-calendar td{
     padding: 3px;
   }
