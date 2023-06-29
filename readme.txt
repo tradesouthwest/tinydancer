@@ -23,3 +23,20 @@ tinyDancer is a minimalistic tiny flex based theme templated for general website
 - Uses CSS Flex layout for reliable responsive design
 - Three footer widgets
 - Sidebar is on right
+
+== Installation ==
+
+1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
+2. Type in tinydancer in the search form and press the 'Enter' key on your keyboard.
+3. Click on the 'Activate' button to use your new theme right away.
+4. Navigate to Appearance > Customize in your admin panel and customize to taste.
+
+
+== Copyright ==
+
+tinyDancer ClassicPress Theme, Copyright 2023 tradesouthwest.com
+tinyDancer is distributed under the terms of the GNU GPL
+
+# Notes
+
+Theme is not fully accessibility ready.

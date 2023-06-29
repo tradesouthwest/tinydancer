@@ -19,7 +19,7 @@ Text domain:  tinydancer
 
 License: GPLv2 or later; 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html; 
-Tags: one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, blog; 
+Tags: one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, threaded-comments, translation-ready, blog
 
 ## Description
 tinyDancer is a minimalistic tiny flex based theme templated for general website use. Features custom logo; Hero image and call to action section; Flex based containers; extremely fast page load. Simple, reliable, fast and good looking. Demo at https://classicpress-themes.com/tinydancer/ 
@@ -34,3 +34,20 @@ tinyDancer is a minimalistic tiny flex based theme templated for general website
 - Uses CSS Flex layout for reliable responsive design
 - Three footer widgets
 - Sidebar is on right
+
+# Installation
+
+1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
+2. Type in tinydancer in the search form and press the 'Enter' key on your keyboard.
+3. Click on the 'Activate' button to use your new theme right away.
+4. Navigate to Appearance > Customize in your admin panel and customize to taste.
+
+
+# Copyright 
+
+tinyDancer ClassicPress Theme, Copyright 2023 tradesouthwest.com
+tinyDancer is distributed under the terms of the GNU GPL
+
+# Notes
+
+Theme is not fully accessibility ready.
