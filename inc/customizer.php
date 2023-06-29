@@ -90,6 +90,17 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
 		  'height' => 520
 		) )
 	);
+	$wp_customize->add_setting( 'tinydancer_hero_bkgheight', array(
+		'default' => '520',
+		'transport' => 'refresh'
+	));
+	$wp_customize->add_control( 'tinydancer_hero_bkgheight', array(
+		'label'   => 'Hero Section Height',
+		'section'  => 'tinydancer_hero',
+		'settings'  => 'tinydancer_hero_bkgheight',
+		'type'       => 'number',
+		'description' => __( 'Sets height of Hero section height to include background image. (px)', 'tinydancer')
+	));
 	$wp_customize->add_setting( 'tinydancer_hero_calltotext', array(
 		'default' => '',
 		'transport' => 'refresh'

@@ -46,6 +46,6 @@ tinyDancer is a minimalistic tiny flex based theme templated for general website
 tinyDancer ClassicPress Theme, Copyright 2023 tradesouthwest.com
 tinyDancer is distributed under the terms of the GNU GPL
 
-# Notes
+## Notes
 
 Theme is not fully accessibility ready.
