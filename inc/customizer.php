@@ -185,15 +185,9 @@ function tinydancer_register_theme_customizer_setup($wp_customize)
 	));
 	$wp_customize->add_control( 'tinydancer_padding_content', array(
 		'label'   => 'Content Padding',
-		'section'  => 'tinydancer_blog_layout',
+		'section'  => 'tinydancer_layout',
 		'settings'  => 'tinydancer_padding_content',
 		'type'       => 'number',
 		'description' => __( 'Change padding space of Content sections.', 'tinydancer')
 	));
-
-}
-// Easy Boolean checker for checkbox
-function tinydancer_sanitize_checkbox( $checked ) {
-	// Boolean check.
-	return ( ( isset( $checked ) && true == $checked ) ? true : false );
-} 
+}  
