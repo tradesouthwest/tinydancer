@@ -669,6 +669,7 @@ cite:before{
 }
 .upto{
   display: flex;
+  align-items: center;
 }
 .upto a {
   font-size: larger;
@@ -682,8 +683,9 @@ cite:before{
   width: 30px;
   height: 30px;
   text-align: center;
-  line-height: 35px;
+  line-height: 2;
   cursor: pointer;
+  position: relative;
 }
 
 .back_to_top:hover {
@@ -722,28 +724,7 @@ cite:before{
   .section-sidebar{
     width:100%; 
     flex-direction: column;
-  } /*
-  .page-header,
-  .nav-container{
-    width: 100%;
-    margin: 0;
-    padding: .5em 0 0 0 ;
-    box-sizing: border-box;
-  }
-  .page-nav-wrapper{
-    overflow: visible;
-    height: 100%;
-    display: flex;
-  }
-  .page-nav {
-    position: static;
-    z-index: 999;
-    height: 100%;
-  }
-  .page-nav ul.sub-menu > li{
-    left: -12%;
-    top: 2.444em;
-  } */
+  } 
   #wp-calendar td{
     padding: 3px;
   }
@@ -756,6 +737,6 @@ cite:before{
   }
   .back_to_top {
   
-      left: 85%;
+    left: auto;
   }
 } 
