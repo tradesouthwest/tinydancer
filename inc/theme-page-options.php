@@ -42,7 +42,7 @@ function tinydancer_theme_customizer_css() {
             $dloop  = get_theme_mod( 'tinydancer_blog_layout' ); 
             $calign = get_theme_mod( 'tinydancer_content_align' ); 
             $cposit = (empty(get_theme_mod( 'tinydancer_hero_callposition' )))? '5.75' : get_theme_mod( 'tinydancer_hero_callposition' ); 
-            echo 'body{ background-color: #' . esc_attr( $background_color ) . ';}.section-content{ padding: ' . esc_attr( $cpaddg ) . 'px;text-align:' . esc_attr( $calign ) .'; }.section-sidebar{padding-top: ' . esc_attr( $cpaddg ) . 'px;}.dancer-loop{flex-direction: ' . esc_attr( $dloop ) . ';}p, .entry-content, .excerpt-content, li, h2, h3, h4 {color: ' . esc_attr( $pcolor ) . ';}.call-to-action{top: '. esc_attr( $cposit ) . 'em;}';
+            echo 'body{ background-color: #' . esc_attr( $background_color ) . ';}.section-content{ padding: ' . esc_attr( $cpaddg ) . 'px;text-align:' . esc_attr( $calign ) .'; }.section-sidebar{padding-top: ' . esc_attr( $cpaddg ) . 'px;}.page-header{padding: calc(.5 * ' . esc_attr( $cpaddg ) . 'px);padding-bottom: 0;}.dancer-loop{flex-direction: ' . esc_attr( $dloop ) . ';}p, .entry-content, .excerpt-content, li, h2, h3, h4 {color: ' . esc_attr( $pcolor ) . ';}.call-to-action{top: '. esc_attr( $cposit ) . 'em;}';
         endif;
         echo '</style>';
     endif;
