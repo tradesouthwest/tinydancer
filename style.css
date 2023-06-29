@@ -4,10 +4,12 @@ Theme URI:   https://classicpress-themes/tinydancer
 Author:      Tradesouthwest
 Author URI:  https://tradesouthwest.com/
 Description: TinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy percent and thirty percent widths. Footer is full width with three widget sections. OPtions include content padding; background-color; theme headings; hero section text h2, h3; hero image.
-Version:     1.0.1
+Requires PHP: 7.2
+Requires CP:  1.4
+Version:     1.0.2
 License:     GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags:        one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, blog
+Tags:        one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, sticky-post, threaded-comments, translation-ready, blog
 Text Domain: tinydancer
 
 This theme, like ClassicPress, is licensed under the GPL.
