@@ -1,7 +1,6 @@
 # tinyDancer
 tinyDancer is a minimalistic tiny flex based theme templated for general website use.
 
-/*
 Theme Name:   tinyDancer
 
 Contributors: Tradesouthwest
@@ -15,10 +14,9 @@ Tested up to: 1.5
 Version:      1.0.2
 
 Text domain:  tinydancer
-*/
 
-License: GPLv2 or later; 
-License URI: http://www.gnu.org/licenses/gpl-2.0.html; 
+License: GPLv2 or later; License URI: http://www.gnu.org/licenses/gpl-2.0.html; 
+
 Tags: one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, threaded-comments, translation-ready, blog
 
 ## Description
@@ -35,7 +33,7 @@ tinyDancer is a minimalistic tiny flex based theme templated for general website
 - Three footer widgets
 - Sidebar is on right
 
-# Installation
+## Installation
 
 1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
 2. Type in tinydancer in the search form and press the 'Enter' key on your keyboard.
@@ -43,7 +41,7 @@ tinyDancer is a minimalistic tiny flex based theme templated for general website
 4. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
 
-# Copyright 
+## Copyright 
 
 tinyDancer ClassicPress Theme, Copyright 2023 tradesouthwest.com
 tinyDancer is distributed under the terms of the GNU GPL
