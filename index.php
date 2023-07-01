@@ -55,8 +55,10 @@ get_header(); ?>
                     <?php 
                     } // Ends if has thumbnail ?>
 
-                    <div class="aftr-excrpt">
-                        <hr>
+                    <div class="after-excrpt">
+                    
+                    <p class="after-cats"><span><small><?php esc_html_e('Categorized as: ', 'tinydancer'); ?></small></span> <small><em><?php the_category( ' &bull; ' ); ?></em></small></p>
+               
                     </div>
                     
                     <?php } else { ?>

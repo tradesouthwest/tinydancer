@@ -1,4 +1,4 @@
-/* begin Back to Top button  */
+/* begin Back to Top button & show menu @package tinydancer */
 
 (function() {
   'use strict';
@@ -26,5 +26,23 @@
 
   window.addEventListener('scroll', trackScroll);
   goTopBtn.addEventListener('click', backToTop);
+
+  document.getElementById("nav_button").addEventListener('click', openMenu );
+  function openMenu(){
+    
+    var opv = document.getElementById("open_menu").checked;
+    var x = document.getElementsByClassName("nav-wrapper")[0];
+    if( true === opv ) {
+
+      if (x.style.display === "flex") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "flex";
+      }
+    }
+    
+    return false;
+    //console.log(opv);
+  }
 
 })(); 

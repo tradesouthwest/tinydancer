@@ -39,9 +39,16 @@
                 <div class="site-description"><?php echo esc_html( get_bloginfo( 'description', 'display' ) ); ?></div>
             </div>
         </header>
-            <div class="nav-container">
+            
+                <div id="nav_button" class="nav-button-top">
+                    <label><span>|</span><span>|</span><span>|</span>
+                    <input type="hidden" name="open_menu" class="open-menu" value="false">
+                    <input id="open_menu" type="checkbox" name="open_menu" 
+                    class="open-menu" role="button" ></label>
+                </div>
+                <div class="nav-container">
                 <nav id="main__nav" class="page-nav-wrapper">
-                    
+                    <div class="nav-wrapper">
                     <?php
                     wp_nav_menu(
                         array(
@@ -50,6 +57,7 @@
                         )
                     );
                     ?>
-                
+                    </div>
                 </nav>
+
             </div>

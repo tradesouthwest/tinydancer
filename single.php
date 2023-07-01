@@ -17,7 +17,7 @@ get_header(); ?>
     <section class="section-content">
    
         <?php while ( have_posts() ) : the_post(); ?>
-            <h3 class="article-heading"><?php the_title(); ?></h3>
+            <h2 class="article-heading aligncenter"><?php the_title(); ?></h2>
             <?php 
                 do_action( 'tinydancer_render_attachment' ); ?>
 
@@ -26,6 +26,15 @@ get_header(); ?>
                 <?php the_content( ); ?>
 
             </div>
+
+            <aside class="after-content">
+                <p class="after-cats"><span><small><?php esc_html_e('By: ', 'tinydancer'); ?></span> <em><?php the_author(); ?></em></small>
+                | <span><small><?php esc_html_e('Categorized as: ', 'tinydancer'); ?></span> <em><?php the_category( ' &bull; ' ); ?></em></small>
+                | <span><small><?php esc_html_e('Keys: ', 'tinydancer'); ?></span> <em><?php the_tags( ' ' ); ?></em></small>
+                | <span><small><?php esc_html_e('Added on: ', 'tinydancer'); ?></span> <em><?php the_date(); ?></em></small></p>
+                
+
+            </aside>
         <?php 
         // If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) {

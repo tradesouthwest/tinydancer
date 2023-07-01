@@ -371,13 +371,15 @@ function tinydancer_render_hero_section() {
 		$cta_url  = get_theme_mod( 'tinydancer_hero_calltourl' );
 		$cta_text = get_theme_mod( 'tinydancer_hero_calltotext' );
 		$himg     = wp_get_attachment_url( get_theme_mod( 'tinydancer_hero_image' ) );
+		$htitle   = get_theme_mod('tinydancer_hero_title', '');
+		$hheading = get_theme_mod( 'tinydancer_hero_heading', '' );
 	endif;
 
 	// Check if the image really exists
 	
     if ( !empty($himg) )  { 
 		
-		$hout  =  'style="background-image: url('. esc_url( $img ) .'); "';
+		$hout  =  'style="background-image: url('. esc_url( $himg ) .'); "';
 		$class = 'tdnc-viewable';
 	} else {
 
@@ -386,18 +388,21 @@ function tinydancer_render_hero_section() {
 	} 
 	?>
 	<div class="home-wide-top">
-		<div class="hero-inner-content <?php echo esc_attr( $class ); ?>" <?php echo esc_attr( $hout ); ?>>
+		<div class="hero-inner-content <?php echo esc_attr( $class ); ?>" <?php echo wp_kses_post( $hout ); ?>>
 			<header class="hgroup">
-			<?php
-			if( $htitle = get_theme_mod('tinydancer_hero_title') ) {
+			
+			<?php 
+			 
+			if( '' != $htitle ) {
 
 				echo '<h2 class="hero-title">' . esc_html( $htitle ) . '</h2>';
 			}
-			if( $hheading = get_theme_mod( 'tinydancer_hero_heading', '' ) ) {
+			if( '' != $hheading ) {
 
 				echo '<h3 class="hero-heading">' . esc_html( $hheading ) . '</h3>';
 			} ?>
 			</header>
+			
 			<?php if ( '' != $cta_text ) : ?>
 
 			<div class="call-to-action">
@@ -405,7 +410,8 @@ function tinydancer_render_hero_section() {
 					<a class="button cta-tinyd" href="<?php echo esc_url( $cta_url ); ?>" 
 						title="<?php echo esc_attr( $cta_text ); ?>"><?php echo esc_html( $cta_text ); ?></a>
 				</span>
-			</div>
+			</div> 
+
 			<?php endif; ?>
 
 		</div>
