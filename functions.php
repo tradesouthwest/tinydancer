@@ -148,7 +148,6 @@ if ( ! function_exists( 'tinydancer_theme_setup' ) ) :
 		register_nav_menus(
 			array(
 				'primary-menu' => __( 'Primary Main Menu', 'tinydancer' ),
-				'secondary-menu'  => __( 'Secondary Top Menu', 'tinydancer' ),
 			)
 		);
 	}
@@ -194,15 +193,6 @@ function tinydancer_theme_enqueue_styles() {
 		TINYDANCER_VER, 
 		true 
 	);
-/*
-	wp_localize_script(
-		'tinydancer-script',
-		'screenReaderText',
-		array(
-			'expand'   => __( 'expand child menu', 'tinydancer' ),
-			'collapse' => __( 'collapse child menu', 'tinydancer' ),
-		)
-	); */
 }
 
 

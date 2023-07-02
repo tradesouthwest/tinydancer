@@ -3,13 +3,13 @@ Theme Name:  Tinydancer
 Theme URI:   https://classicpress-themes/tinydancer
 Author:      Tradesouthwest
 Author URI:  https://tradesouthwest.com/
-Description: TinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy percent and thirty percent widths. Footer is full width with three widget sections. OPtions include content padding; background-color; theme headings; hero section text h2, h3; hero image.
+Description: TinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy-five percent and twenty-five percent widths. Footer is full width with three widget sections. Options include content padding; background-color; theme headings; hero section text, url for call to action and hero background image.
 Requires PHP: 7.2
 Requires CP:  1.4
 Version:     1.0.3
 License:     GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags:        one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, sticky-post, threaded-comments, translation-ready, blog
+Tags:        two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header,sticky-post, threaded-comments, translation-ready, blog
 Text Domain: tinydancer
 
 This theme, like ClassicPress, is licensed under the GPL.
@@ -367,13 +367,11 @@ top: -1em;
   color: #506366;
 }
 .nav-button-wrapper{
-
   height: 4em;
   width: 4em;
   position: absolute;
-
   right: 2em;
-  top: 6em;
+  top: 9em;
   padding-top:2px;
   /* box-shadow: 0 1px 10px 0px #badae5; */
   border-radius: 0 20px 0px 20px;
