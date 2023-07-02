@@ -5,7 +5,7 @@ Contributors: Tradesouthwest
 Requires PHP: 7.2
 Requires CP:  1.4
 Tested up to: 1.5
-Version:      1.0.2
+Version:      1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, threaded-comments, translation-ready, blog
@@ -40,3 +40,7 @@ tinyDancer is distributed under the terms of the GNU GPL
 == Notes ==
 
 Theme is not fully accessibility ready.
+
+== Change Log ==
+= 1.0.3
+* initial release 

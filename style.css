@@ -6,7 +6,7 @@ Author URI:  https://tradesouthwest.com/
 Description: TinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy percent and thirty percent widths. Footer is full width with three widget sections. OPtions include content padding; background-color; theme headings; hero section text h2, h3; hero image.
 Requires PHP: 7.2
 Requires CP:  1.4
-Version:     1.0.2
+Version:     1.0.3
 License:     GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags:        one-column, two-columns, right-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, sticky-post, threaded-comments, translation-ready, blog
@@ -329,6 +329,57 @@ top: -1em;
 }
 
 
+#nav_button{
+  display: none;
+  height: inherit;
+  position: relative;
+}
+.nav-button-top {
+  transform:rotate(90deg);
+  color: #000;
+  font-size: xx-large;
+  font-style: normal;
+  left: .228em
+}
+.nav-button-top:hover{
+  font-style: italic
+}
+.open-menu{
+  height: 3.65em;
+  width: 2.5em;
+  display: flex;
+  margin-top: -2.538em;
+  border: thin solid transparent;
+  background-image: none;
+  margin-left: -3px;
+  transform: rotate(-90deg);
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+}
+.nav-button-top label{
+  position: relative;
+}
+.nav-button-top span{
+  position:relative;
+  z-index:22;
+  cursor: pointer;
+  color: #506366;
+}
+.nav-button-wrapper{
+
+  height: 4em;
+  width: 4em;
+  position: absolute;
+
+  right: 2em;
+  top: 6em;
+  padding-top:2px;
+  /* box-shadow: 0 1px 10px 0px #badae5; */
+  border-radius: 0 20px 0px 20px;
+  background: rgba(252,254,255,.8);
+}
+
 /**
  * ************************************************** 4.0 - Page
  * This is a wrapper for all content below the header.
@@ -337,9 +388,7 @@ top: -1em;
 .page {
   overflow-x: initial;
 } 
-section {
-  overflow: auto;
-}
+
 .article-heading{
   margin-top: 1.444em;
   margin-right: 0px;
@@ -488,7 +537,7 @@ main {
  * ************************************************** 7.0 - Content
  */
  .section-content {
-  width: 70%;
+  width: 75%;
   display: flex;
   flex-direction: column;
 }
@@ -622,7 +671,7 @@ cite:before{
  */
 
 .section-sidebar {
-  width: 30%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -702,39 +751,6 @@ cite:before{
 .back_to_top-show {
   display: block;
 }
-.nav-button-top {
-  transform:rotate(90deg);
-  color: #000;
-  position: absolute;
-  font-size: xx-large;
-  font-style: normal;
-  width:fit-content;
-}
-.nav-button-top:hover{
-  font-style: italic
-}
-.open-menu{
-  height: 3.65em;
-  width: 2.5em;
-  display: flex;
-  margin-top: -2.538em;
-  border: thin solid transparent;
-  background-image: none;
-  margin-left: -3px;
-  transform: rotate(-90deg);
-  z-index: 2;
-  position: relative;
-  cursor: pointer;
-}
-#nav_button{
-  display: none;
-}
-.nav-button-top span{
-  position:relative;
-  z-index:22;
-  cursor: pointer;
-  color: #c0c3c6;
-}
 /**
  * ************************************************** 10.0 - Media Breakpoints
  */
@@ -749,17 +765,14 @@ cite:before{
   .nav-container{
     min-height: 3em;
   }
-  #nav_button{
+  #nav_button,
+  .nav-button-wrapper{
     display: flex;
   }
   .nav-wrapper{
     display:none;
-   
   }
-  .nav-button-top label{
-    padding-right: 1px;
-    margin-top: -7em
-  }
+  
   main {
     display: flex;
     flex-direction: column;
@@ -812,6 +825,9 @@ cite:before{
   #open_menu{
     display:none
     
+  }
+  .nav-button-wrapper{
+    display: none
   }
   .nav-wrapper{
     position:relative;
