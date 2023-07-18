@@ -11,7 +11,7 @@ Requires CP:  1.4
 
 Tested up to: 1.5
 
-Version:      1.0.2
+Version:      1.0.4
 
 Text domain:  tinydancer
 
