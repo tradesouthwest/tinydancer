@@ -56,7 +56,8 @@ body {
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; 
 }
 .page{
-    margin: 0 auto;
+    margin: 0;
+    padding: 5px 30px;
 }
 
 /**

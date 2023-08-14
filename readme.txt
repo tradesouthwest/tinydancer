@@ -42,5 +42,7 @@ tinyDancer is distributed under the terms of the GNU GPL
 Theme is not fully accessibility ready.
 
 == Change Log ==
+= 1.0.4
+* updated padding on main
 = 1.0.3
 * initial release 
