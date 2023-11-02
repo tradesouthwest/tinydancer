@@ -5,7 +5,7 @@ Contributors: Tradesouthwest
 Requires PHP: 7.2
 Requires CP:  1.4
 Tested up to: 1.5
-Version:      1.0.4
+Version:      1.0.6
 Plugin URI:   https://leadspilot.com/classicpress/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -43,6 +43,8 @@ tinyDancer is distributed under the terms of the GNU GPL
 Theme is not fully accessibility ready.
 
 == Change Log ==
+= 1.0.6
+* added line-height and resets
 = 1.0.5
 * updated padding on main
 = 1.0.4
