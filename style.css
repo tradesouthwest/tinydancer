@@ -1,16 +1,16 @@
 /*
-Theme Name:  Tinydancer
-Theme URI:   https://classicpress-themes/tinydancer
-Author:      Tradesouthwest
-Author URI:  https://tradesouthwest.com/
-Description: TinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy-five percent and twenty-five percent widths. Footer is full width with three widget sections. Options include content padding; background-color; theme headings; hero section text, url for call to action and hero background image.
+Theme Name:   Tinydancer
+Theme URI:    https://classicpress-themes/tinydancer
+Author:       Tradesouthwest
+Author URI:   https://tradesouthwest.com/
+Description:  TinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy-five percent and twenty-five percent widths. Footer is full width with three widget sections. Options include content padding; background-color; theme headings; hero section text, url for call to action and hero background image.
 Requires PHP: 7.4
 Requires CP:  1.4
-Version:     1.0.5
-License:     GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags:        two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header,sticky-post, threaded-comments, translation-ready, blog
-Text Domain: tinydancer
+Version:      1.0.6
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Tags:         two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header,sticky-post, threaded-comments, translation-ready, blog
+Text Domain:  tinydancer
 
 This theme, like ClassicPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -50,6 +50,7 @@ html {
 
 body {
     padding: 0;
+    margin: 0;
     font-size: 100%;
     font-family: -apple-system, "BlinkMacSystemFont", "Avenir",
     "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
@@ -58,6 +59,258 @@ body {
 .page{
     margin: 0;
     padding: 5px 30px;
+}
+a {
+	background-color: transparent;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+pre code,
+pre {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}
+pre code, 
+code{
+  font-family: monaco, "Consolas", "Lucida Console", monospace;
+  background: #efefef
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	border: 0 solid #1a1a1a;
+	border-left-width: 4px;
+	color: #686868;
+	font-size: 19px;
+	font-size: 1.1875rem;
+	font-style: italic;
+	line-height: 1.4736842105;
+	margin: 0 0 1.4736842105em;
+	overflow: hidden;
+	padding: 0 0 0 1.263157895em;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote p {
+	margin-bottom: 1.4736842105em;
+}
+
+blockquote cite,
+blockquote small {
+	color: #1a1a1a;
+	display: block;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.75;
+}
+
+blockquote cite:before,
+blockquote small:before {
+	content: "\2014\00a0";
+}
+
+blockquote em,
+blockquote i,
+blockquote cite {
+	font-style: normal;
+}
+
+blockquote strong,
+blockquote b {
+	font-weight: 400;
+}
+
+blockquote > :last-child {
+	margin-bottom: 0;
+}
+
+address {
+	font-style: italic;
+	margin: 0 0 1.75em;
+}
+
+pre {
+	border: 1px solid #d1d1d1;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.3125;
+	margin: 0 0 1.75em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.75em;
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #d1d1d1;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #007acc;
+	color: #fff;
+	padding: 0.125em 0.25em;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+figure {
+	margin: 0;
+}
+
+hr {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-size: 1em;
+}
+
+button,
+input,
+select,
+textarea {
+	max-width: 100%;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	appearance: button;
+	cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+	cursor: default;
+	opacity: .5;
+}
+
+textarea {
+	overflow: auto;
+	vertical-align: top;
+}
+
+optgroup {
+	font-weight: bold;
+}
+
+hr {
+	background-color: #d1d1d1;
+	border: 0;
+	height: 1px;
+	margin: 0 0 1.75em;
+}
+
+ul,
+ol {
+	margin: 0 0 1.75em 1.25em;
+	padding: 0;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+	margin-left: 1.5em;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+}
+
+dl {
+	margin: 0 0 1.75em;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 0 1.75em;
 }
 
 /**
@@ -72,9 +325,12 @@ html, body {
 /*
  Avoid text overflows
 */
-p, h1, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6, div > *:not([style]) {
   overflow-wrap: break-word;
-  line-height: 1.485
+  line-height: 1.674;
+}
+p, div > *:not([style]) {
+  color: #373839;
 }
 h1{
   font-size: xx-large
@@ -86,6 +342,7 @@ h1{
     box-sizing: border-box;
 }
 img {
+  border: 0;
 	height: auto;
 	/* Make sure images are scaled correctly. */
 	max-width: 100%;
@@ -141,34 +398,7 @@ a:active,
 a:hover {
     outline: 0;
 }
-pre {
-  display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
-  font-size: 13px;
-  line-height: 1.42857143;
-  color: #333;
-  word-break: break-all;
-  word-wrap: break-word;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 
-pre code,
-pre {
-  padding: 0;
-  font-size: inherit;
-  color: inherit;
-  white-space: pre-wrap;
-  background-color: transparent;
-  border-radius: 0;
-}
-pre code, 
-code{
-  font-family: monaco, "Consolas", "Lucida Console", monospace;
-  background: #efefef
-}
 table {
   background-color: transparent;
 }
@@ -238,7 +468,7 @@ input[type="text"]{
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding-top: .825em;
+  padding-top: .05em;
 }
 .site-title a{
   color: #494c4f;
@@ -271,6 +501,9 @@ top: -1em;
 }
 
 /* ************************************************** 3.1 - Nav */
+ul.page-nav{
+  margin-left: 0;
+}
 .page-nav-wrapper{
   width: 100%;
   border-bottom: 3px solid #badae5;
@@ -287,7 +520,7 @@ top: -1em;
   position: relative;
   z-index: 999;
   align-items: flex-start;
-  padding-left: 1.875em;
+  padding-left: 0;
 }
 .page-nav li{
   display: flex;
@@ -394,6 +627,12 @@ top: -1em;
   margin-bottom: -10px;
   margin-left: 0px;
 }
+.home .inner_content h2{
+  margin: 2em 0 1.674em 0;
+}
+.linked-attachment-container{
+  margin-top: 1.222em;
+}
 /* Alignments */
 .bypostauthor {
   color: inherit;
@@ -424,6 +663,11 @@ top: -1em;
 .comment-list .comment{
   margin-top: 1em;
 }
+.comment-form p label{
+  display: flex;
+  min-width: 5em;
+  text-decoration:underline;
+}
 .maxheight-sm{
   max-height: 168px;
   overflow:hidden;
@@ -432,6 +676,7 @@ top: -1em;
 .maxheight-sm img{
   max-height: 150px;
   width: auto;
+  margin-top: 1.222em;
 }
 .after-content,
 .inner_content .after-excrpt {
@@ -720,6 +965,8 @@ cite:before{
 .footer-base a,
 .footer-base{
   color: #ffffff;
+  display:flex;
+  align-items: center;
 }
 .upto{
   display: flex;
@@ -730,7 +977,13 @@ cite:before{
   border: thin solid white;
   border-radius: 50%
 }
-
+.upto a sup{
+  position:relative;
+  top:11%;
+  left: 28%;
+  font-size: larger;
+  font-weight: normal;
+}
 /* Back to Top button */
 
 .back_to_top {
