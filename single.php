@@ -17,7 +17,7 @@ get_header(); ?>
     <section class="section-content">
    
         <?php while ( have_posts() ) : the_post(); ?>
-            <h2 class="article-heading aligncenter"><?php the_title(); ?></h2>
+            <h2 class="article-heading"><?php the_title(); ?></h2>
             <?php 
                 do_action( 'tinydancer_render_attachment' ); ?>
 
