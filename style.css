@@ -6,7 +6,7 @@ Author URI:   https://tradesouthwest.com/
 Description:  TinyDancer is a minimalistic tiny flex based theme templated for general website use. Has a Hero section template for a home (or any) page. Basic content sections are seventy-five percent and twenty-five percent widths. Footer is full width with three widget sections. Options include content padding; background-color; theme headings; hero section text, url for call to action and hero background image.
 Requires PHP: 7.4
 Requires CP:  1.4
-Version:      1.0.6
+Version:      1.0.8
 License:      GNU General Public License v2 or later
 License URI:  http://www.gnu.org/licenses/gpl-2.0.html
 Tags:         two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header,sticky-post, threaded-comments, translation-ready, blog
@@ -17,16 +17,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 
 /* ===========================
-    CSS Index         
+    CSS Index
 ==============================
  *
- * 1.0 - Body/Page 
+ * 1.0 - Body/Page
  * 2.0 - Universal padding and margins and alignments
  * 3.0 - Site Header
  * * 3.1 - Navigation
  * 4.0 - Page
  * 5.0 - Wide Banner Top
- * 6.0 - Main 
+ * 6.0 - Main
  * 7.0 - Content
  * 8.0 - Sidebar
  * 9.0 - Footer
@@ -54,11 +54,10 @@ body {
     font-size: 100%;
     font-family: -apple-system, "BlinkMacSystemFont", "Avenir",
     "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; 
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 .page{
-    margin: 0;
-    padding: 5px 30px;
+    margin: 0 auto;
 }
 a {
 	background-color: transparent;
@@ -115,7 +114,7 @@ pre {
   background-color: transparent;
   border-radius: 0;
 }
-pre code, 
+pre code,
 code{
   font-family: monaco, "Consolas", "Lucida Console", monospace;
   background: #efefef
@@ -281,21 +280,6 @@ hr {
 	margin: 0 0 1.75em;
 }
 
-ul,
-ol {
-	margin: 0 0 1.75em 1.25em;
-	padding: 0;
-}
-
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
-	margin-left: 1.5em;
-}
-
 li > ul,
 li > ol {
 	margin-bottom: 0;
@@ -325,19 +309,16 @@ html, body {
 /*
  Avoid text overflows
 */
-p, h1, h2, h3, h4, h5, h6, div > *:not([style]) {
+p, h1, h2, h3, h4, h5, h6, div > :not([style]) {
   overflow-wrap: break-word;
   line-height: 1.674;
 }
-p, div > *:not([style]) {
-  color: #373839;
-}
 h1{
   font-size: xx-large
-} 
-.page-header, 
-.section-content, 
-.section-sidebar, 
+}
+.page-header,
+.section-content,
+.section-sidebar,
 .page-footer{
     box-sizing: border-box;
 }
@@ -453,7 +434,7 @@ input[type="text"]{
   padding: 4px;
   line-height: 1.28;
   vertical-align: middle;
-  
+
 }
 .tdnc-viewable{
   display: flex;
@@ -464,7 +445,7 @@ input[type="text"]{
 /**
 * ************************************************** 3.0 - Site Header
 */
-.page-header { 
+.page-header {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -497,7 +478,7 @@ top: -1em;
   position: relative;
   max-height: 148px;
   width: max-content;
-  left: 2.5em;
+  left: 33px;
 }
 
 /* ************************************************** 3.1 - Nav */
@@ -520,7 +501,6 @@ ul.page-nav{
   position: relative;
   z-index: 999;
   align-items: flex-start;
-  padding-left: 0;
 }
 .page-nav li{
   display: flex;
@@ -619,7 +599,7 @@ ul.page-nav{
  */
 .page {
   overflow-x: initial;
-} 
+}
 
 .article-heading{
   margin-top: 1.444em;
@@ -721,7 +701,7 @@ p.after-cats{
 }
 /**
 * ************************************************** 5.0 - Wide Banner Top
-* TODO set height in customzr
+* Set height in customzr
 */
 .tinydancer-hero{
   z-index: 2;
@@ -733,7 +713,7 @@ p.after-cats{
   width: 100%;
 }
 .hero-inner-content {
-  height: calc(520px - 10vh );
+  /*height: calc(520px - 10vh );*/
   padding: 2.75em;
   background-position: center;
   background-size: cover;
@@ -769,7 +749,7 @@ p.after-cats{
   height: fit-content;
 }
 /**
- * ************************************************** 6.0 Main 
+ * ************************************************** 6.0 Main
  */
 main {
   display: flex;
@@ -784,6 +764,10 @@ main {
   width: 75%;
   display: flex;
   flex-direction: column;
+}
+.section-content .post-content{
+	margin-left: 23px;
+	margin-right: 13px;
 }
 .dancer-loop {
   display: inherit;
@@ -803,7 +787,7 @@ main {
   margin: 1%;
    /*
   box-shadow: .5px .5px 3px 1px #dddedf; */
-  
+
 }
 .dancer-loop-horizontal .dancer-loop article:last-child{
   margin-right: 1%;
@@ -933,14 +917,14 @@ cite:before{
 }
 #wp-calendar {
   table-layout:fixed;
-  
+
 }
 #wp-calendar td{
   padding: 3px 9px;
 }
 /**
- * ************************************************** 9.0 Footer 
- */ 
+ * ************************************************** 9.0 Footer
+ */
 .page-footer {
   height: auto;
   width: 100%;
@@ -1013,7 +997,7 @@ cite:before{
   }
   .page {
     overflow-x: visible;
-  } 
+  }
   .nav-container{
     min-height: 3em;
   }
@@ -1024,7 +1008,7 @@ cite:before{
   .nav-wrapper{
     display:none;
   }
-  
+
   main {
     display: flex;
     flex-direction: column;
@@ -1054,13 +1038,13 @@ cite:before{
     margin-top: 4em;
     margin-left: calc(22vw - 100%);
   }
-  
+
   .page-footer,
   .section-content,
   .section-sidebar{
-    width:100%; 
+    width:100%;
     flex-direction: column;
-  } 
+  }
   #wp-calendar td{
     padding: 3px;
   }
@@ -1076,7 +1060,7 @@ cite:before{
   }
   #open_menu{
     display:none
-    
+
   }
   .nav-button-wrapper{
     display: none
@@ -1096,8 +1080,12 @@ cite:before{
   .page-nav .menu-item-has-children .sub-menu{
     opacity:0;
     top:2.5em;
+	left: .15em;
     position:absolute;
   }
+	.page-nav .sub-menu .sub-menu li {
+		margin-left: .5em;
+	}
   .page-nav .menu-item-has-children:hover .sub-menu{
     opacity: 1;
 
@@ -1114,12 +1102,21 @@ cite:before{
   }
 }
 @media screen and (min-width: 1025px){
-  body{ 
+  body{
     max-width: 1440px;
     margin: 0 auto;
   }
   .back_to_top {
-  
+
     left: auto;
   }
-} 
+}
+}
+@media screen and (min-width: 1440px){
+	.page{
+		padding: 0px 30px;
+	}
+	.page-nav{
+		padding-left: 3em;
+	}
+}

@@ -7,7 +7,7 @@
  * other "pages" on your WordPress site will use a different template.
  *
  * @package tinydancer
- * @since tinydancer 1.0
+ * @since tinydancer 1.0.7
  */
 
 get_header(); ?>
@@ -18,12 +18,16 @@ get_header(); ?>
    
         <?php while ( have_posts() ) : the_post(); ?>
             <h2 class="article-heading"><?php the_title(); ?></h2>
-            <?php 
-                do_action( 'tinydancer_render_attachment' ); ?>
+            
+                <?php do_action( 'tinydancer_render_attachment' ); ?>
 
             <div class="inner_content">
 
                 <?php the_content( ); ?>
+                <p><?php wp_link_pages(	array(
+				'before' => '<div class="page-link"><span>' . __( 'Pages:', 'tinydancer' ) . '</span>',
+				'after'  => '</div>', 
+                ) ); ?></p>
 
             </div>
 

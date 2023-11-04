@@ -5,8 +5,7 @@ Contributors: Tradesouthwest
 Requires PHP: 7.2
 Requires CP:  1.4
 Tested up to: 1.5
-Version:      1.0.6
-Plugin URI:   https://leadspilot.com/classicpress/
+Version:      1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, threaded-comments, translation-ready, blog
@@ -26,7 +25,6 @@ tinyDancer is a minimalistic tiny flex based theme templated for general website
 - Sidebar is on right
 
 == Installation ==
-
 1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
 2. Type in tinydancer in the search form and press the 'Enter' key on your keyboard.
 3. Click on the 'Activate' button to use your new theme right away.
@@ -34,17 +32,21 @@ tinyDancer is a minimalistic tiny flex based theme templated for general website
 
 
 == Copyright ==
-
 tinyDancer ClassicPress Theme, Copyright 2023 tradesouthwest.com
 tinyDancer is distributed under the terms of the GNU GPL
 
 == Notes ==
-
 Theme is not fully accessibility ready.
 
 == Change Log ==
+= 1.0.8
+* evened up margins
+* fixed nav offsets
+= 1.0.7
+* add page links to single post
+* fixed hero image sizing
 = 1.0.6
-* added line-height and resets
+* styles
 = 1.0.5
 * updated padding on main
 = 1.0.4

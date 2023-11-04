@@ -23,7 +23,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package tinyDancer
- * @since 1.0.0
+ * @since 1.0.8
  */
 if ( !defined ( 'TINYDANCER_VER' ) ) { define ( 'TINYDANCER_VER', time() ); }
 // FAST LOADER References ( find @#id in DocBlocks )
@@ -167,14 +167,23 @@ function tinydancer_theme_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'tinydancer_content_width', 520 );
 }
 
+/** 
+ * Customizer
+ * suport footer background & text color
+ * header background & color
+ * page background & color
+ */
+require get_template_directory() . '/inc/customizer.php';
+
+require get_template_directory() . '/inc/theme-page-options.php';
+
 /** #A3
  * Enqueues scripts and styles.
  *
  * @since Classic Sixteen 1.0
  */
 function tinydancer_theme_enqueue_styles() {
-	wp_enqueue_style( 
-		'tinydancer-style', 
+	wp_enqueue_style( 'tinydancer-style', 
 		get_stylesheet_directory_uri() .'/style.css',
 		array(),
 		TINYDANCER_VER
@@ -193,6 +202,17 @@ function tinydancer_theme_enqueue_styles() {
 		TINYDANCER_VER, 
 		true 
 	);
+
+	//$styles = do_action('tinydancer_theme_customizer');
+	wp_register_style( 'tinydancer-theme-mods', false );
+	wp_enqueue_style( 'tinydancer-theme-mods',
+		get_stylesheet_directory_uri() .'/inc/tinydancer-entry-set.css',
+		array(),
+		time() 
+	);
+	if ( function_exists( 'tinydancer_theme_customizer_css' ) ) {
+	wp_add_inline_style( 'tinydancer-theme-mods', do_action('tinydancer_theme_customizer') );
+	}
 }
 
 
@@ -291,10 +311,19 @@ function tinydancer_theme_custom_logo() {
 /** #A6
  * Attachment link for featured images
  *
- * @since 1.0.2
+ * @since 1.0.7
+ * @see https://wordpress.stackexchange.com/questions/172337/check-if-post-has-attachments-not-image
  * @return HTML
  */
 function tinydancer_render_attachment_link(){
+	global $post;
+	$attachments = get_posts( array(
+        'post_type' => 'attachment',
+        'posts_per_page' => -1,
+        'post_parent' => $post->ID,
+        'exclude'     => 'image'
+        ));
+		if ( $attachments ) { 
 ?>  
     <figure class="linked-attachment-container">
     <a class="imgwrap-link"
@@ -307,9 +336,11 @@ function tinydancer_render_attachment_link(){
             'alt'  => get_attachment_link( get_post_thumbnail_id() )
         ) 
     ); ?></a>
-    </figure><?php 
+    </figure>
+	<?php }	else {
+			return '';
+		}
 }
-
 
 /** #A7
  * Attachment render for excerpts
@@ -334,16 +365,6 @@ function tinydancer_excerpt_attachment_toanchor(){
 		); ?></a>
 		</figure><?php 
 }
-
-/** 
- * Customizer
- * suport footer background & text color
- * header background & color
- * page background & color
- */
-require get_template_directory() . '/inc/customizer.php';
-
-require get_template_directory() . '/inc/theme-page-options.php';
 
 /** #A8
  * Render hero section
