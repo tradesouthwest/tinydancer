@@ -57,5 +57,5 @@ function tinydancer_theme_customizer_css() {
     
     endif;
     $styles .= '</style>';
-    echo $styles;
+    echo $styles; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }

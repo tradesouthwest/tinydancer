@@ -1,9 +1,9 @@
 <?php 
 /**
- * Template Name: Wide Banner Top
+ * front page
  * 
  * @package tinydancer
- * @since 1.0.0
+ * @since 1.0.8
  */
 get_header(); ?>
 
